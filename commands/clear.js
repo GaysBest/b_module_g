@@ -6,6 +6,17 @@ exports.run = (client, message, args, tools) => {
   if (args[0] > 100) return message.channel.send('**Пожалуйста, укажите число от 1 до 100.**');
   message.channel.bulkDelete(args[0])
     .then(messages => message.channel.send(`**Успешно удалено \`${messages.size}/${args[0]}\` сообщений.**`).then(msg => msg.delete({
-      timeout: 10000
+      timeout: 100000
     }))) 
+    const log = message.guild.channels.find('name', 'action-log');	
+    const embed = new Discord.RichEmbed()	
+      .setColor(0x000000)	
+      .setDescription("**Удаление сообщений**")	
+      .addField("Модератор:", `${message.author}`)	
+      .addField("Канал:", message.channel)	
+      .addField("Удалено:", `${args[0]}`)	
+      .setAuthor(message.author.tag, message.author.displayAvatarURL)	
+      .setFooter(`${message.author.id}`)	
+      .setTimestamp();	
+    log.send({ embed });
 }
