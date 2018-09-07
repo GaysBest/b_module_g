@@ -16,7 +16,7 @@ if(!muterole){
       permissions:[]
     })
     message.guild.channels.forEach(async (channel, id) => {
-      await channel.overwritePermissions(muterole, {
+      channel.overwritePermissions(muterole, {
         SEND_MESSAGES: false,
         ADD_REACTIONS: false
       });
@@ -30,7 +30,7 @@ if(!mutetime) return message.channel.send("```fix\nВы должны указа�
 let reason = args.slice(1).join(' ');	
   if(!reason) reason = "Причина не указана.";	
 
-await(tomute.addRole(muterole.id));
+tomute.addRole(muterole.id);
   const log = message.guild.channels.find('name', 'action-log');
   const embed = new Discord.RichEmbed()
   .setDescription('**Выдача мута**')
