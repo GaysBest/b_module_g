@@ -12,7 +12,7 @@ exports.run = (client, message, args) => {
    let reason = args.slice(1).join(' ');	
   if(!reason) reason = "Причина не указана.";	
       
-  await member.ban(reason)	
+  member.ban(reason)	
   message.channel.send("```fix\nБан успешно добавлен.```");	
   const log = message.guild.channels.find('name', 'action-log');
   const embed = new Discord.RichEmbed()
