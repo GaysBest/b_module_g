@@ -10,7 +10,7 @@ if(tomute.hasPermission("MANAGE_MESSAGES")) return message.channel.send("```fix\
 let muterole = message.guild.roles.find('id', "477599026817138691");
 if(!muterole){
   try{
-    muterole = await message.guild.createRole({
+    muterole = message.guild.createRole({
       name: "muted",
       color: "#000000",
       permissions:[]
