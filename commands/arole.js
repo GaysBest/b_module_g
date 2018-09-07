@@ -1,6 +1,6 @@
 const Discord = require("discord.js");	
 const client = new Discord.Client();
-exports.run = (client, message, args) => {
+exports.run = (client, message, args, await) => {
     if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("```fix\nИзвините, вы не имеете прав на использование этой команды.```");	
     let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);	
    if (!rMember) return errors.cantfindUser(message.channel);	
