@@ -9,7 +9,7 @@ exports.run = (client, message, args) => {
    if(!deleteCount || deleteCount < 2 || deleteCount > 100)	
     return message.channel.send("```fix\nПожалуйста, укажите число между 2 и 100.```");	
       
-   const fetched = await message.channel.fetchMessages({limit: deleteCount});	
+   const fetched = message.channel.fetchMessages({limit: deleteCount});	
   message.channel.bulkDelete(fetched);	
    const log = message.guild.channels.find('name', 'action-log');	
   const embed = new Discord.RichEmbed()	
