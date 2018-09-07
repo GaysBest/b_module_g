@@ -12,7 +12,7 @@ exports.run = (client, message, args) => {
      let reason = args.slice(1).join(' ');	
     if(!reason) reason = "Причина не указана.";	
     	
-    await member.kick(reason)	
+    member.kick(reason)	
     message.channel.send("```fix\nПользователь успешно кикнут.```");	
     const log = message.guild.channels.find('name', 'action-log');
     const embed = new Discord.RichEmbed()
