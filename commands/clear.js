@@ -8,15 +8,4 @@ exports.run = (client, message, args, tools) => {
     .then(messages => message.channel.send(`**Успешно удалено \`${messages.size}/${args[0]}\` сообщений.**`).then(msg => msg.delete({
       timeout: 100000
     }))) 
-    const log = message.guild.channels.find('name', 'action-log');	
-    const embed = new Discord.RichEmbed()	
-      .setColor(0x000000)	
-      .setDescription("**Удаление сообщений**")	
-      .addField("Модератор:", `${message.author}`)	
-      .addField("Канал:", message.channel)	
-      .addField("Удалено:", `${args[0]}`)	
-      .setAuthor(message.author.tag, message.author.displayAvatarURL)	
-      .setFooter(`${message.author.id}`)	
-      .setTimestamp();	
-    log.send({ embed });
 }
