@@ -7,6 +7,10 @@ exports.run = (client, message, args) => {
     var member = message.mentions.members.first();
     let reason = args.slice(1).join(' ');	
     if(!reason) reason = "Причина не указана.";
+    if(!member)	
+      return message.channel.send("```fix\nПожалуйста, укажите правильного участника.```");	
+    if(!member.kickable) 	
+      return message.channel.send("```fix\nЯ не могу кикнуть этого участника.```");
     member.kick().then((member) => {
         message.channel.send("```fix\nПользователь успешно кикнут.```");
     }).catch(() => {
