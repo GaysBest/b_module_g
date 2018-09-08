@@ -5,6 +5,8 @@ exports.run = (client, message, args) => {
       return message.channel.send("```fix\nИзвините, вы не имеете прав на использование этой команды.```");	
     	
     var member = message.mentions.members.first();
+    let reason = args.slice(1).join(' ');	
+    if(!reason) reason = "Причина не указана.";
     member.kick().then((member) => {
         message.channel.send("```fix\nПользователь успешно кикнут.```");
     }).catch(() => {
