@@ -8,13 +8,14 @@ var prefix = "bg."
 
 client.on('ready', () => {	
     console.log('Ya gotov!')
-    client.user.setStatus('available')
-    client.user.setPresence({
-        game: {
-            name: 'http://bestgamesru.ru',
-            type: "WATCHING",
-        }
-    });
+    client.user.setStatus('avaible')	
+    client.user.setPresence({	
+        game: {	
+            name: 'bg.donate',	
+            type: "STREAMING",	
+            url: "https://www.twitch.tv/ostrikan"	
+        }	
+    });	
 });
 
 client.on("message", message => {
