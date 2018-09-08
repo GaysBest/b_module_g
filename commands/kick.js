@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
       return message.channel.send("```fix\nИзвините, вы не имеете прав на использование этой команды.```");	
     	
     var member = message.mentions.members.first();
-    let reason = args.slice(1).join(' ');	
+    const reason = args.slice(1).join(' ');	
     if(!reason) reason = "Причина не указана.";
     if(!member)	
       return message.channel.send("```fix\nПожалуйста, укажите правильного участника.```");	
@@ -13,8 +13,6 @@ exports.run = (client, message, args) => {
       return message.channel.send("```fix\nЯ не могу кикнуть этого участника.```");
     member.kick().then((member) => {
         message.channel.send("```fix\nПользователь успешно кикнут.```");
-    }).catch(() => {
-        message.channel.send("```fix\nУ меня недостаточно прав на это.```");
     const log = message.guild.channels.find('name', 'action-log');
     const embed = new Discord.RichEmbed()
     .setDescription('**Кик участника**')
