@@ -8,13 +8,13 @@ var prefix = "bg."
 
 client.on('ready', () => {	
     console.log('Ya gotov!')
-    client.user.setStatus('online')	
-    client.user.setPresence({	
-        game: {	
-            name: 'http://bestgamesru.ru',	
-            type: "WATCHING",	
-        }	
-    });	
+    client.user.setStatus('available')
+    client.user.setPresence({
+        game: {
+            name: 'Грей-Прон',
+            type: "WATCHING",
+        }
+    });
 });
 
 client.on("message", message => {
