@@ -11,7 +11,7 @@ client.on('ready', () => {
     client.user.setStatus('available')
     client.user.setPresence({
         game: {
-            name: 'Грей-Прон',
+            name: 'http://bestgamesru.ru',
             type: "WATCHING",
         }
     });
