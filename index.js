@@ -45,7 +45,7 @@ client.on('guildMemberAdd', member => {
     member.send({ embed });	
   });	
    client.on('message', message => {
-      const swearWords = ["SG", "чифир","взлом", "ЧИФИР", "ВЗЛОМ", "соурсгеймс", "СОУРСГЕЙМС", "сорсгамес", "sgru", "SGRU", "взлома", "Chifir", "https://discord.gg/", "chifir", "4ифир", "4ifir", "Чифир", "покупной", "Покупной", "СГ", "СГРУ", "SGRU", "сгру", "Сгру", "ЧИФИР", "бекдор", "Бекдор", "Бэкдур", "Бэкдор", "бэкдур", "бекдур", "backdoor", "doorback"];	
+      const swearWords = ["SG", "чифир","взлом", "ЧИФИР", "ВЗЛОМ", "соурсгеймс", "СОУРСГЕЙМС", "сорсгамес", "sgru", "SGRU", "взлома", "Chifir", "https://discord.gg/", "chifir", "4ифир", "4ifir", "Чифир", "покупной", "Покупной", "СГ", "СГРУ", "SGRU", "сгру", "Сгру", "ЧИФИР", "бекдор", "Бекдор", "Бэкдур", "Бэкдор", "бэкдур", "бекдур", "backdoor", "doorback", "discord.gg"];	
       if( swearWords.some(word => message.content.includes(word)) ) {	
           message.delete();	
           message.author.send('```fix\nПохоже вы использовали запрещенное слово, мы удалили ваше сообщение!```');	
