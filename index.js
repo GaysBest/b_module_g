@@ -70,5 +70,11 @@ client.on('guildMemberAdd', member => {
     .setTimestamp()	
     log.send({ embed });	
   });
+   client.on('message', message => {
+      const swearWords = ["инвайт", "приглашение", "ссылку на дискорд", "ссылка на дискорд", "Инвайт", "Приглашение", "Ссылку на дискорд", "Ссылка на дискорд"];	
+      if( swearWords.some(word => message.content.includes(word)) ) {	
+          message.channel.send("https://discord.gg/cSEATcj");
+        }	
+  });
 
 client.login(process.env.BOT_TOKEN);
