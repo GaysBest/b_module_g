@@ -48,7 +48,7 @@ client.on('message', message => {
     const swearWords = ["SG", "чифир","взлом", "ЧИФИР", "ВЗЛОМ", "соурсгеймс", "СОУРСГЕЙМС", "сорсгамес", "sgru", "SGRU", "взлома", "Chifir", "https://discord.gg/", "chifir", "4ифир", "4ifir", "Чифир", "покупной", "Покупной", "СГ", "СГРУ", "SGRU", "сгру", "Сгру", "ЧИФИР", "бекдор", "Бекдор", "Бэкдур", "Бэкдор", "бэкдур", "бекдур", "backdoor", "doorback", "discord.gg"];	
     if( swearWords.some(word => message.content.includes(word)) ) {	
         if(message.author.id === "477613962989404193") return;
-        if(message.author.hasPermission('BAN_MEMBERS')) return;
+        if(message.member.hasPermission('BAN_MEMBERS')) return;
         message.delete();	
         message.author.send('```fix\nПохоже вы использовали запрещенное слово, мы удалили ваше сообщение!```');	
       }	
