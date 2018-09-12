@@ -78,5 +78,14 @@ client.on('message', message => {
           message.channel.send("https://discord.gg/cSEATcj");
         }	
   });
+client.on('message', message => {
+    const swearWords = ["хуй", "Хуй", "Пизда", "пизда", "бля", "Бля"];	
+    if( swearWords.some(word => message.content.includes(word)) ) {	
+        if(message.author.id === "477613962989404193") return;
+        if(message.member.hasPermission('BAN_MEMBERS')) return;
+        message.delete();	
+        message.author.send('```fix\nПохоже вы использовали мат, мы удалили ваше сообщение!```');	
+      }	
+});
 
 client.login(process.env.BOT_TOKEN);
