@@ -79,7 +79,7 @@ client.on('message', message => {
         }	
   });
 client.on('message', message => {
-    const swearWords = ["хуй", "Хуй", "Пизд", "пизд", "бля", "Бля", "еба", "Еба", "сук", "Сук", "Пидор", "пидор"];	
+    const swearWords = ["Пизд", "пизд", "еба", "Еба", "сук", "Сук", "Пидор", "пидор"];	
     if( swearWords.some(word => message.content.includes(word)) ) {	
         if(message.author.id === "477613962989404193") return;
         if(message.member.hasPermission('BAN_MEMBERS')) return;
