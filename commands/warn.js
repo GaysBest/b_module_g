@@ -19,19 +19,18 @@ exports.run = async (client, message, args) => {
   fs.writeFile("./warnings.json", JSON.stringify(warns), (err) => {
     if (err) console.log(err)
   });
-
-  let warnEmbed = new Discord.RichEmbed()
-  .setDescription("**Предупреждения**")
-  .setAuthor(message.author.username)
-  .setColor("#fc6400")
+  const log = message.guild.channels.find('name', 'action-log');
+  const embed = new Discord.RichEmbed()
+  .setDescription("**Предупреждениe**")
   .addField("Юзер:", `<@${wUser.id}>`)
   .addField("Канал:", message.channel)
   .addField("Кол-во варнов:", warns[wUser.id].warns)
-  .addField("Причина", reason);
-
-  let warnchannel = message.guild.channels.find(`name`, "action-log");
-
-  warnchannel.send(warnEmbed);
+  .addField("Причина", reason)
+  .setFooter(`${message.author.id}`)	
+  .setColor(0x000000)
+  .setAuthor(`BGRU Discord Warn`, message.guild.iconURL)
+  .setTimestamp();
+  log.send({ embed });
 
   if(warns[wUser.id].warns == 3){
     let muterole = message.guild.roles.find(`id`, "477599026817138691");
