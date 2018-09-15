@@ -4,11 +4,11 @@ const ms = require("ms");
 let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 
 exports.run = async (client, message, args) => {
-  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Вы не можете это использовать.");
-  let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
-  if(!wUser) return message.reply("Не удалось найти этого участника.");
-  if(wUser.hasPermission("MANAGE_MESSAGES")) return message.reply("Указанный участник имеет столько же или больше прав, чем вы.");
-  let reason = args.join(" ").slice(22);
+  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("```fix\nВы не можете это использовать.```");
+  const wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
+  if(!wUser) return message.reply("```fix\nНе удалось найти этого участника.```");
+  if(wUser.hasPermission("MANAGE_MESSAGES")) return message.reply("```fix\nУказанный участник имеет столько же или больше прав, чем вы.```");
+  const reason = args.join(" ").slice(22);
 
   if(!warns[wUser.id]) warns[wUser.id] = {
     warns: 0
@@ -27,11 +27,12 @@ exports.run = async (client, message, args) => {
   .addField("Канал:", message.channel)
   .addField("Кол-во варнов:", warns[wUser.id].warns)
   .addField("Причина", reason)
-  .setFooter(`${message.author.id}`)	
+  .setFooter(`${wUser.id.id}`)	
   .setColor(0x000000)
   .setAuthor(`BGRU Discord Warn`, message.guild.iconURL)
   .setTimestamp();
   log.send({ embed });
+  wUser.send({ embed });
 
   if(warns[wUser.id].warns == 3){
     let muterole = message.guild.roles.find(`id`, "477599026817138691");
@@ -42,7 +43,18 @@ exports.run = async (client, message, args) => {
 
     setTimeout(function(){
       wUser.removeRole(muterole.id)
-      message.reply(`<@${wUser.id}> мут истек!`)
+      message.channel.send(`<@${wUser.id}> мут истек!`)
+  const log = message.guild.channels.find('name', 'action-log');
+  const embed = new Discord.RichEmbed()
+  .setDescription('**Выдача мута**')
+  .addField('Пользователь:', `<@${wUser.id}>`)
+  .addField("Причина", "Автоматически")
+  .setFooter(`${wUser.id}`)	
+  .setColor(0x000000)
+  .setAuthor(`BGRU Discord Mute`, message.guild.iconURL)
+  .setTimestamp()
+  log.send({ embed });
+  wUser.send({ embed });
     }, ms(mutetime))
   }
 }
