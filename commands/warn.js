@@ -26,7 +26,7 @@ exports.run = async (client, message, args) => {
   .addField("Пользователь:", `<@${wUser.id}>`)
   .addField("Канал:", message.channel)
   .addField("Кол-во варнов:", warns[wUser.id].warns)
-  .addField("Причина", reason)
+  .addField("Причина:", reason)
   .setFooter(`${message.author.id}`)	
   .setColor(0x000000)
   .setAuthor(`BGRU Discord Warn`, message.guild.iconURL)
