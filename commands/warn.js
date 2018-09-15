@@ -22,7 +22,8 @@ exports.run = async (client, message, args) => {
   const log = message.guild.channels.find('name', 'action-log');
   const embed = new Discord.RichEmbed()
   .setDescription("**Предупреждениe**")
-  .addField("Юзер:", `<@${wUser.id}>`)
+  .addField('Модератор:', message.author)
+  .addField("Пользователь:", `<@${wUser.id}>`)
   .addField("Канал:", message.channel)
   .addField("Кол-во варнов:", warns[wUser.id].warns)
   .addField("Причина", reason)
