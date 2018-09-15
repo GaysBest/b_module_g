@@ -4,10 +4,10 @@ const ms = require("ms");
 let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 
 exports.run = async (client, message, args) => {
-  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("```fix\nВы не можете это использовать.```");
+  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("```fix\nВы не можете это использовать.```");
   const wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
-  if(!wUser) return message.reply("```fix\nНе удалось найти этого участника.```");
-  if(wUser.hasPermission("MANAGE_MESSAGES")) return message.reply("```fix\nУказанный участник имеет столько же или больше прав, чем вы.```");
+  if(!wUser) return message.channel.send("```fix\nНе удалось найти этого участника.```");
+  if(wUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("```fix\nУказанный участник имеет столько же или больше прав, чем вы.```");
   const reason = args.join(" ").slice(22);
 
   if(!warns[wUser.id]) warns[wUser.id] = {
