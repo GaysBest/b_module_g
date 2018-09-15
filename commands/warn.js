@@ -21,22 +21,6 @@ module.exports.run = async (client, message, args) => {
     if (err) console.log(err)
   });
 
-  let warnEmbed = new Discord.RichEmbed()
-  .setFooter(`${message.author.id}`)	
-  .setColor(0x000000)
-  .setAuthor(`BGRU Discord Warn`, message.guild.iconURL)
-  .setTimestamp()
-  .setDescription("**Предупреждение**")
-  .addField("Юзер:", `<@${wUser.id}>`)
-  .addField("Канал:", message.channel)
-  .addField("Кол-во предупреждений:", warns[wUser.id].warns)
-  .addField("Причина:", reason);
-
-  let warnchannel = message.guild.channels.find(`name`, "action-log");
-  if(!warnchannel) return message.reply("```fix\nНе удалось найти лог.```");
-
-  warnchannel.send(warnEmbed);
-
   if(warns[wUser.id].warns == 3){
     let muterole = message.guild.roles.find(`id`, "477599026817138691");
     if(!muterole) return message.reply("```fix\nВы должны создать роль для Заключенных.```");
@@ -49,5 +33,17 @@ module.exports.run = async (client, message, args) => {
       wUser.removeRole(muterole.id)
       message.reply(`<@${wUser.id}> мут истек!`)
     }, ms(mutetime))
+      const warnEmbed = new Discord.RichEmbed()
+  .setFooter(`${message.author.id}`)	
+  .setColor(0x000000)
+  .setAuthor(`BGRU Discord Warn`, message.guild.iconURL)
+  .setTimestamp()
+  .setDescription("**Предупреждение**")
+  .addField("Юзер:", `<@${wUser.id}>`)
+  .addField("Канал:", message.channel)
+  .addField("Кол-во предупреждений:", warns[wUser.id].warns)
+  .addField("Причина:", reason);
+  const warnchannel = message.guild.channels.find(`name`, "action-log");
+  warnchannel.send(warnEmbed);
   }
 }
