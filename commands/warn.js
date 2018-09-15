@@ -19,6 +19,18 @@ module.exports.run = async (client, message, args) => {
 
   fs.writeFile("./warnings.json", JSON.stringify(warns), (err) => {
     if (err) console.log(err)
+      const warnEmbed = new Discord.RichEmbed()
+      .setFooter(`${message.author.id}`)	
+      .setColor(0x000000)
+      .setAuthor(`BGRU Discord Warn`, message.guild.iconURL)
+      .setTimestamp()
+      .setDescription("**Предупреждение**")
+      .addField("Юзер:", `<@${wUser.id}>`)
+      .addField("Канал:", message.channel)
+      .addField("Кол-во предупреждений:", warns[wUser.id].warns)
+      .addField("Причина:", reason);
+      let warnchannel = message.guild.channels.find(`id`, "477597095172505620");
+      warnchannel.send({warnEmbed});
   });
 
   if(warns[wUser.id].warns == 3){
@@ -33,17 +45,5 @@ module.exports.run = async (client, message, args) => {
       wUser.removeRole(muterole.id)
       message.reply(`<@${wUser.id}> мут истек!`)
     }, ms(mutetime));
-      const warnEmbed = new Discord.RichEmbed()
-      .setFooter(`${message.author.id}`)	
-      .setColor(0x000000)
-      .setAuthor(`BGRU Discord Warn`, message.guild.iconURL)
-      .setTimestamp()
-      .setDescription("**Предупреждение**")
-      .addField("Юзер:", `<@${wUser.id}>`)
-      .addField("Канал:", message.channel)
-      .addField("Кол-во предупреждений:", warns[wUser.id].warns)
-      .addField("Причина:", reason);
-      let warnchannel = message.guild.channels.find(`id`, "477597095172505620");
-      warnchannel.send({warnEmbed});
   }
 }
