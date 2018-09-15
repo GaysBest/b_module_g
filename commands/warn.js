@@ -3,7 +3,7 @@ const fs = require("fs");
 const ms = require("ms");
 const warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 
-exports.run = async (client, message, args) => {
+exports.run = (client, message, args) => {
 
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("```fix\nИзвините, вы не имеете прав на использование этой команды.```");
   const wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
