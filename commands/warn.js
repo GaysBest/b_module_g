@@ -32,18 +32,18 @@ module.exports.run = async (client, message, args) => {
     setTimeout(function(){
       wUser.removeRole(muterole.id)
       message.reply(`<@${wUser.id}> мут истек!`)
-    }, ms(mutetime))
+    }, ms(mutetime));
       const warnEmbed = new Discord.RichEmbed()
-  .setFooter(`${message.author.id}`)	
-  .setColor(0x000000)
-  .setAuthor(`BGRU Discord Warn`, message.guild.iconURL)
-  .setTimestamp()
-  .setDescription("**Предупреждение**")
-  .addField("Юзер:", `<@${wUser.id}>`)
-  .addField("Канал:", message.channel)
-  .addField("Кол-во предупреждений:", warns[wUser.id].warns)
-  .addField("Причина:", reason);
-  const warnchannel = message.guild.channels.find(`name`, "action-log");
-  warnchannel.send(warnEmbed);
+      .setFooter(`${message.author.id}`)	
+      .setColor(0x000000)
+      .setAuthor(`BGRU Discord Warn`, message.guild.iconURL)
+      .setTimestamp()
+      .setDescription("**Предупреждение**")
+      .addField("Юзер:", `<@${wUser.id}>`)
+      .addField("Канал:", message.channel)
+      .addField("Кол-во предупреждений:", warns[wUser.id].warns)
+      .addField("Причина:", reason);
+      let warnchannel = message.guild.channels.find(`id`, "477597095172505620");
+      warnchannel.send({warnEmbed});
   }
 }
