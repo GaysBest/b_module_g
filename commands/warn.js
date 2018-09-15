@@ -19,18 +19,18 @@ module.exports.run = async (client, message, args) => {
 
   fs.writeFile("./warnings.json", JSON.stringify(warns), (err) => {
     if (err) console.log(err)
-      const warnEmbed = new Discord.RichEmbed()
-      .setFooter(`${message.author.id}`)	
-      .setColor(0x000000)
-      .setAuthor(`BGRU Discord Warn`, message.guild.iconURL)
-      .setTimestamp()
-      .setDescription("**Предупреждение**")
-      .addField("Юзер:", `<@${wUser.id}>`)
-      .addField("Канал:", message.channel)
-      .addField("Причина:", reason);
-      let warnchannel = message.guild.channels.find(`id`, "477597095172505620");
-      warnchannel.send({warnEmbed});
   });
+  
+   const warnEmbed = new Discord.RichEmbed()
+    .setDescription("**Предупреждния**")
+    .setAuthor(message.author.username)
+    .setColor(0x000000)
+    .addField("Юзер:", `<@${wUser.id}>`)
+    .addField("Канал:", message.channel)
+    .addField("Кол-во:", warns[wUser.id].warns)
+    .addField("Причина:", reason);
+    let warnchannel = message.guild.channels.find(`id`, "477597095172505620");
+    warnchannel.send({warnEmbed});
 
   if(warns[wUser.id].warns == 3){
     let muterole = message.guild.roles.find(`id`, "477599026817138691");
