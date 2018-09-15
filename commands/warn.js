@@ -1,15 +1,15 @@
-const Discord = require("discord.js");
+onst Discord = require("discord.js");
 const fs = require("fs");
 const ms = require("ms");
-const warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
+let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 
-exports.run = async (client, message, args) => {
+exports.run = async (bot, message, args) => {
 
-  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("```fix\nИзвините, вы не имеете прав на использование этой команды.```");
-  const wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
-  if(!wUser) return message.channel.send("```fix\nНе удалось найти этого участника.```");
-  if(wUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("```fix\nВы не можете предупредить этого участника.```");
-  const reason = args.join(" ").slice(22);
+  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Вы не можете это использовать.");
+  let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
+  if(!wUser) return message.reply("Не удалось найти этого участника.");
+  if(wUser.hasPermission("MANAGE_MESSAGES")) return message.reply("Указанный участник имеет столько же или больше прав, чем вы.");
+  let reason = args.join(" ").slice(22);
 
   if(!warns[wUser.id]) warns[wUser.id] = {
     warns: 0
@@ -17,23 +17,25 @@ exports.run = async (client, message, args) => {
 
   warns[wUser.id].warns++;
 
-  fs.writeFile("./warnings.json", JSON.stringify(warns)
-  );
-  
-   const warnEmbed = new Discord.RichEmbed()
-    .setDescription("**Предупреждния**")
-    .setAuthor(message.author.username)
-    .setColor(0x000000)
-    .addField("Юзер:", `<@${wUser.id}>`)
-    .addField("Канал:", message.channel)
-    .addField("Кол-во:", warns[wUser.id].warns)
-    .addField("Причина:", reason);
-    let warnchannel = message.guild.channels.find(`id`, "477597095172505620");
-    warnchannel.send({warnEmbed});
+  fs.writeFile("./warnings.json", JSON.stringify(warns), (err) => {
+    if (err) console.log(err)
+  });
+
+  let warnEmbed = new Discord.RichEmbed()
+  .setDescription("**Предупреждения**")
+  .setAuthor(message.author.username)
+  .setColor("#fc6400")
+  .addField("Юзер:", `<@${wUser.id}>`)
+  .addField("Канал:", message.channel)
+  .addField("Кол-во варнов:", warns[wUser.id].warns)
+  .addField("Причина", reason);
+
+  let warnchannel = message.guild.channels.find(`name`, "action-log");
+
+  warnchannel.send(warnEmbed);
 
   if(warns[wUser.id].warns == 3){
     let muterole = message.guild.roles.find(`id`, "477599026817138691");
-    if(!muterole) return message.reply("```fix\nВы должны создать роль для Заключенных.```");
 
     let mutetime = "45m";
     await(wUser.addRole(muterole.id));
@@ -42,6 +44,6 @@ exports.run = async (client, message, args) => {
     setTimeout(function(){
       wUser.removeRole(muterole.id)
       message.reply(`<@${wUser.id}> мут истек!`)
-    }, ms(mutetime));
+    }, ms(mutetime))
   }
 }
