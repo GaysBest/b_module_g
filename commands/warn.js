@@ -24,12 +24,14 @@ module.exports.run = async (client, message, args) => {
 
   let warnEmbed = new Discord.RichEmbed()
   .setDescription("**Предупреждение**")
-  .setAuthor(message.author.username)
-  .setColor(0x000000)
   .addField("Юзер:", `<@${wUser.id}>`)
   .addField("Канал:", message.channel)
   .addField("Кол-во предупреждений:", warns[wUser.id].warns)
-  .addField("Причина:", reason);
+  .addField("Причина:", reason)
+  .setFooter(`${message.author.id}`)	
+  .setColor(0x000000)
+  .setAuthor(`BGRU Discord Warn`, message.guild.iconURL)
+  .setTimestamp();
 
   let warnchannel = message.guild.channels.find(`name`, "action-log");
   if(!warnchannel) return message.reply("```fix\nНе удалось найти лог.```");
