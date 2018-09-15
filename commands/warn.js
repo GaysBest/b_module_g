@@ -5,7 +5,7 @@ let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 
 module.exports.run = async (client, message, args) => {
 
-  if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("```fix\nИзвините, вы не имеете прав на использование этой команды.```");
+  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("```fix\nИзвините, вы не имеете прав на использование этой команды.```");
   let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
   if(!wUser) return message.channel.send("```fix\nНе удалось найти этого участника.```");
   if(wUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("```fix\nВы не можете предупредить этого участника.```");
