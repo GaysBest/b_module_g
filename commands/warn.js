@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const ms = require("ms");
-let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
+const warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 
 module.exports.run = async (client, message, args) => {
 
@@ -22,15 +22,15 @@ module.exports.run = async (client, message, args) => {
   });
 
   let warnEmbed = new Discord.RichEmbed()
+  .setFooter(`${message.author.id}`)	
+  .setColor(0x000000)
+  .setAuthor(`BGRU Discord Warn`, message.guild.iconURL)
+  .setTimestamp()
   .setDescription("**Предупреждение**")
   .addField("Юзер:", `<@${wUser.id}>`)
   .addField("Канал:", message.channel)
   .addField("Кол-во предупреждений:", warns[wUser.id].warns)
-  .addField("Причина:", reason)
-  .setFooter(`${message.author.id}`)	
-  .setColor(0x000000)
-  .setAuthor(`BGRU Discord Warn`, message.guild.iconURL)
-  .setTimestamp();
+  .addField("Причина:", reason);
 
   let warnchannel = message.guild.channels.find(`name`, "action-log");
   if(!warnchannel) return message.reply("```fix\nНе удалось найти лог.```");
