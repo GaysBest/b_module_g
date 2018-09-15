@@ -44,7 +44,7 @@ exports.run = async (client, message, args) => {
   const embed = new Discord.RichEmbed()
   .setDescription('**Выдача мута**')
   .addField('Пользователь:', `<@${wUser.id}>`)
-  .addField("Причина", "Предупреждения 3/3")
+  .addField("Причина:", "Предупреждения 3/3")
   .setFooter(`${message.author.id}`)	
   .setColor(0x000000)
   .setAuthor(`BGRU Discord Mute`, message.guild.iconURL)
