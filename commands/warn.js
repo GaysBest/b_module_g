@@ -1,4 +1,4 @@
-onst Discord = require("discord.js");
+сonst Discord = require("discord.js");
 const fs = require("fs");
 const ms = require("ms");
 let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
