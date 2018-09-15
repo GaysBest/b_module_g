@@ -17,9 +17,8 @@ exports.run = async (client, message, args) => {
 
   warns[wUser.id].warns++;
 
-  fs.writeFile("./warnings.json", JSON.stringify(warns), (err) => {
-    if (err) console.log(err)
-  });
+  fs.writeFile("./warnings.json", JSON.stringify(warns)
+  );
   
    const warnEmbed = new Discord.RichEmbed()
     .setDescription("**Предупреждния**")
