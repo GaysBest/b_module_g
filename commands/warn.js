@@ -40,10 +40,6 @@ exports.run = async (client, message, args) => {
     let mutetime = "45m";
     await(wUser.addRole(muterole.id));
     message.channel.send(`<@${wUser.id}> получил временный мут.`);
-
-    setTimeout(function(){
-      wUser.removeRole(muterole.id)
-      message.channel.send(`<@${wUser.id}> мут истек!`)
   const log = message.guild.channels.find('name', 'action-log');
   const embed = new Discord.RichEmbed()
   .setDescription('**Выдача мута**')
@@ -55,6 +51,10 @@ exports.run = async (client, message, args) => {
   .setTimestamp()
   log.send({ embed });
   wUser.send({ embed });
+
+    setTimeout(function(){
+      wUser.removeRole(muterole.id)
+      message.channel.send(`<@${wUser.id}> мут истек!`)
     }, ms(mutetime))
   }
 }
