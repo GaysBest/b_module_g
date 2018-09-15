@@ -27,7 +27,7 @@ exports.run = async (client, message, args) => {
   .addField("Канал:", message.channel)
   .addField("Кол-во варнов:", warns[wUser.id].warns)
   .addField("Причина", reason)
-  .setFooter(`${wUser.id.id}`)	
+  .setFooter(`${message.author.id}`)	
   .setColor(0x000000)
   .setAuthor(`BGRU Discord Warn`, message.guild.iconURL)
   .setTimestamp();
@@ -49,7 +49,7 @@ exports.run = async (client, message, args) => {
   .setDescription('**Выдача мута**')
   .addField('Пользователь:', `<@${wUser.id}>`)
   .addField("Причина", "Предупреждения 3/3")
-  .setFooter(`${wUser.id}`)	
+  .setFooter(`${message.author.id}`)	
   .setColor(0x000000)
   .setAuthor(`BGRU Discord Mute`, message.guild.iconURL)
   .setTimestamp()
