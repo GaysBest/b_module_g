@@ -96,7 +96,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
     .addField(`После:`, newMessage.content)
     .setFooter(`${message.author.id}`)	
     .setAuthor(message.author.tag, message.author.displayAvatarURL)
-    .setTimestamp()	
+    .setTimestamp();
     const log = message.guild.channels.find('name', 'action-log');	
     log.send({ embed });
 }); 
