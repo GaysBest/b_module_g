@@ -4,19 +4,19 @@ exports.run = async (client, message, args) => {
     const abynd = message.guild.roles.find("id", "477612032603062276");
     const role = args[0];
     if(role === "БУНД") {
-        message.author.addRole(bynd);
+        message.member.addRole(bynd);
         return message.channel.send('```fix\nВы успешно присоединились к рангу **БУНД**!```');
     }
     if(message.author.roles.has(bynd.id)) {
-        message.author.removeRole(bynd.id);
+        message.member.removeRole(bynd.id);
         return message.channel.send('```fix\nВы успешно вышли из ранга **БУНД**!```');
     }
     if(role === "АНТИ-БУНД") {
-        message.author.addRole(abynd);
+        message.member.addRole(abynd);
         return message.channel.send('```fix\nВы успешно присоединились к рангу **БУНД**!```');
     }
     if(message.author.roles.has(abynd.id)) {
-        message.author.removeRole(abynd.id);
+        message.member.removeRole(abynd.id);
         return message.channel.send('```fix\nВы успешно вышли из ранга **БУНД**!```');
     }
 }
