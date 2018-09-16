@@ -88,7 +88,7 @@ client.on('message', message => {
       }	
 });
 client.on('messageUpdate', (oldMessage, newMessage, message) => {
-    const log = message.guild.channels.find('name', 'action-log');	
+    const log = message.channels.find('name', 'action-log');	
     const embed = new Discord.RichEmbed()	
     .setColor(0x000000)	
     .setAuthor(message.author.tag, message.author.displayAvatarURL)	
