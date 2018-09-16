@@ -92,8 +92,8 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
     .setColor(0x000000)	
     .setAuthor(oldMessage.author.tag, oldMessage.author.displayAvatarURL)	
     .setDescription(`**Сообщение изменено в ${oldMessage.channel}**`)	
-    .addField(`До:`, oldMessage.content)
-    .addField(`После:`, newMessage.content)
+    .addField('До изменения:', oldMessage.content)
+    .addField('После изменения:', newMessage.content)
     .setFooter(`${oldMessage.author.id}`)	
     .setAuthor(oldMessage.author.tag, oldMessage.author.displayAvatarURL)
     .setTimestamp();
