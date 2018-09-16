@@ -9,6 +9,6 @@ exports.run = async (client, message) => {
     .setColor(0x000000)
     .setTimestamp()
     .setAuthor('BGRU Discord Ranks')
-    .setDescription(`**БУНД** - ${bynd.size}\n**АНТИ-БУНД** - ${abynd.size}`);
+    .setDescription(`**БУНД** - ${bynd.size} участников\n**АНТИ-БУНД** - ${abynd.size} участников`);
     message.channel.send({embed});
 }
