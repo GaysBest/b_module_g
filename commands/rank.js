@@ -6,20 +6,20 @@ exports.run = async (client, message, args) => {
     if(role === "БУНД") {
         if(!message.member.roles.has(bynd.id)) {
         message.member.addRole(bynd);
-        return message.channel.send('```fix\nВы успешно присоединились к рангу БУНД!```');
+        message.channel.send('```fix\nВы успешно присоединились к рангу БУНД!```');
         if(message.member.roles.has(bynd.id)) {
         message.member.removeRole(bynd);
-        return message.channel.send('```fix\nВы успешно вышли из ранга БУНД!```');
+        message.channel.send('```fix\nВы успешно вышли из ранга БУНД!```');
         }
     }
 }
 if(role === "АНТИ-БУНД") {
     if(!message.member.roles.has(abynd.id)) {
     message.member.addRole(abynd);
-    return message.channel.send('```fix\nВы успешно присоединились к рангу АНТИ-БУНД!```');
+    message.channel.send('```fix\nВы успешно присоединились к рангу АНТИ-БУНД!```');
     if(message.member.roles.has(abynd.id)) {
     message.member.removeRole(abynd);
-    return message.channel.send('```fix\nВы успешно вышли из ранга АНТИ-БУНД!```');
+    message.channel.send('```fix\nВы успешно вышли из ранга АНТИ-БУНД!```');
     }
 }
 }
