@@ -4,19 +4,23 @@ exports.run = async (client, message, args) => {
     const abynd = message.guild.roles.find("id", "477612032603062276");
     const role = args[0];
     if(role === "БУНД") {
+        if(!message.author.roles.has(bynd.id)) {
         message.member.addRole(bynd);
-        return message.channel.send('```fix\nВы успешно присоединились к рангу **БУНД**!```');
+        return message.channel.send('```fix\nВы успешно присоединились к рангу БУНД!```');
+        if(message.author.roles.has(bynd.id)) {
+        message.member.removeRole(bynd);
+        return message.channel.send('```fix\nВы успешно вышли из ранга БУНД!```');
+        }
     }
-    if(message.author.roles.has(bynd.id)) {
-        message.member.removeRole(bynd.id);
-        return message.channel.send('```fix\nВы успешно вышли из ранга **БУНД**!```');
-    }
-    if(role === "АНТИ-БУНД") {
-        message.member.addRole(abynd);
-        return message.channel.send('```fix\nВы успешно присоединились к рангу **БУНД**!```');
-    }
+}
+if(role === "АНТИ-БУНД") {
+    if(!message.author.roles.has(abynd.id)) {
+    message.member.addRole(abynd);
+    return message.channel.send('```fix\nВы успешно присоединились к рангу АНТИ-БУНД!```');
     if(message.author.roles.has(abynd.id)) {
-        message.member.removeRole(abynd.id);
-        return message.channel.send('```fix\nВы успешно вышли из ранга **БУНД**!```');
+    message.member.removeRole(abynd);
+    return message.channel.send('```fix\nВы успешно вышли из ранга АНТИ-БУНД!```');
     }
+}
+}
 }
