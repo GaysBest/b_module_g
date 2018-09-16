@@ -14,7 +14,6 @@ exports.run = async (client, message, args) => {
   .addField('Цвет:', role.hexColor, true)
   .addField('Пингуемая:', role.mentionable ? '\nДа' : 'Нет', true)
   .addField('Дата создания:', moment(role.createdAt).format("LL"), true)
-  .setFooter(`Ответ для ${message.member.tag}`)
   .setAuthor('BGRU Discord Role Info')
   .setDescription('**Информация о роли**')
   .setTimestamp()
