@@ -90,14 +90,14 @@ client.on('message', message => {
 client.on('messageUpdate', (oldMessage, newMessage) => {
     const embed = new Discord.RichEmbed()	
     .setColor(0x000000)	
-    .setAuthor(message.author.tag, message.author.displayAvatarURL)	
-    .setDescription(`**Сообщение от ${message.author} изменено в ${message.channel}**`)	
+    .setAuthor(oldMessage.author.tag, oldMessage.author.displayAvatarURL)	
+    .setDescription(`**Сообщение от ${oldMessage.author} изменено в ${oldMessage.channel}**`)	
     .addField(`До:`, oldMessage.content)
     .addField(`После:`, newMessage.content)
-    .setFooter(`${message.author.id}`)	
-    .setAuthor(message.author.tag, message.author.displayAvatarURL)
+    .setFooter(`${oldMessage.author.id}`)	
+    .setAuthor(oldMessage.author.tag, oldMessage.author.displayAvatarURL)
     .setTimestamp();
-    const log = message.guild.channels.find('name', 'action-log');	
+    const log = oldMessage.guild.channels.find('name', 'action-log');	
     log.send({ embed });
 }); 
 
