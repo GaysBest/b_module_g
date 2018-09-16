@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const superagent = require("superagent");
 const moment = require("moment");
 const temps = moment(message.createdTimestamp).format("LLLL");
-exports.run = async (client, message, args) => {
+exports.run = (client, args, message) => {
   const rol = message.content.split(" ").slice(1).join(" ");
   const role = message.guild.roles.find("name", `${rol}`)
   if(!role) return message.channel.send('```fix\nВы должны указать роль.```');
