@@ -88,7 +88,6 @@ client.on('message', message => {
       }	
 });
 client.on('messageUpdate', (oldMessage, newMessage) => {
-    const log = message.guild.channels.find('name', 'action-log');	
     const embed = new Discord.RichEmbed()	
     .setColor(0x000000)	
     .setAuthor(message.author.tag, message.author.displayAvatarURL)	
@@ -98,6 +97,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
     .setFooter(`${message.author.id}`)	
     .setAuthor(message.author.tag, message.author.displayAvatarURL)
     .setTimestamp()	
+    const log = message.guild.channels.find('name', 'action-log');	
     log.send({ embed });
 }); 
 
