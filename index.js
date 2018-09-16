@@ -87,7 +87,7 @@ client.on('message', message => {
         message.author.send('```fix\nПохоже вы использовали мат, мы удалили ваше сообщение!```');	
       }	
 });
-client.on('messageUpdate', async (omsg, nmsg, message) => {
+client.on('messageUpdate', async (omsg, nmsg, message, guild) => {
     const log = message.guild.channels.find('name', 'action-log');	
     const embed = new Discord.RichEmbed()	
     .setColor(0x000000)	
