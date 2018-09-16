@@ -87,5 +87,18 @@ client.on('message', message => {
         message.author.send('```fix\nПохоже вы использовали мат, мы удалили ваше сообщение!```');	
       }	
 });
+client.on('messageUpdate', (omsg, nmsg) => {
+    const log = message.guild.channels.find('name', 'action-log');	
+    const embed = new Discord.RichEmbed()	
+    .setColor(0x000000)	
+    .setAuthor(message.author.tag, message.author.displayAvatarURL)	
+    .setDescription(`**Сообщение от ${message.author} изменено в ${message.channel}**`)	
+    .addField(`До:`, omsg.content)
+    .addField(`После:`, nmsg.content)
+    .setFooter(`${message.author.id}`)	
+    .setAuthor(message.author.tag, message.author.displayAvatarURL)
+    .setTimestamp()	
+    log.send({ embed });
+}); 
 
 client.login(process.env.BOT_TOKEN);
