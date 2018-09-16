@@ -15,7 +15,7 @@ exports.run = async (client, message, args) => {
   .addField('Пингуемая:', role.mentionable ? '\nДа' : 'Нет', true)
   .addField('Дата создания:', moment(role.createdAt).format("LL"), true)
   .setFooter(`Ответ для ${message.author.username}#${message.author.discriminator}`)
-  .setTitle(`${user.username}#${user.discriminator}`)
+  .setTitle(`${message.author.username}#${message.author.discriminator}`)
   .setTimestamp()
   message.channel.send(roleinfoEmbed)
 }
