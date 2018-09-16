@@ -4,7 +4,7 @@ exports.run = async (client, message) => {
     const bynd = message.guild.roles.get(roleID).members;
     const roleID1 = "477612032603062276";
     const abynd = message.guild.roles.get(roleID1).members;
-    const embed = new Disocrd.RichEmbed()
+    const embed = new Discord.RichEmbed()
     .setFooter(`${message.author.id}`)	
     .setColor(0x000000)
     .setTimestamp()
