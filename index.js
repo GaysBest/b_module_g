@@ -87,7 +87,7 @@ client.on('message', message => {
         message.author.send('```fix\nПохоже вы использовали мат, мы удалили ваше сообщение!```');	
       }	
 });
-client.on('messageUpdate', (oldMessage, newMessage) => {
+client.on('messageUpdate', async (oldMessage, newMessage) => {
     const embed = new Discord.RichEmbed()	
     .addField('До изменения:', oldMessage.content)
     .addField('После изменения:', newMessage.content)
