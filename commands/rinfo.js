@@ -15,7 +15,6 @@ exports.run = (client, message, args) => {
   .addField('Кол-во участников:', `${role.members.size}`, true)
   .addField('Цвет:', `${role.hexColor}`, true)
   .addField('Пингуемая:', `${role.mentionable} ? '\nДа' : 'Нет'`, true)
-  .addField('Дата создания:', moment(role.createdAt).format("LL"), true)
   .setFooter(`${role.id}`)
   .setTimestamp()
   .setDescription('**Описание роли**')
