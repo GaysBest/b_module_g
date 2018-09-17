@@ -20,4 +20,5 @@ let muterole = message.guild.roles.find('id', "477599026817138691");
   .setTimestamp()
   log.send({ embed });
   tomute.removeRole(muterole.id);
+  message.channel.send(`<@${tomute.id}> был разглушен.`);
 }
