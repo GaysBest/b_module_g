@@ -6,6 +6,6 @@ exports.run = (client, message, args) => {
   const role = message.guild.roles.find("name", `${rol}`);
   const embed = new Discord.RichEmbed()
   .setColor(0x000000)
-  .setDescription(`${rol.id}`);
+  .setDescription(`${role.id}`);
   message.channel.send({embed});
 }
