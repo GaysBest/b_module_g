@@ -89,8 +89,8 @@ client.on('message', message => {
 });
 client.on('messageUpdate', async (oldMessage, newMessage) => {
     const embed = new Discord.RichEmbed()	
-    .addField('До изменения:', oldMessage.content)
-    .addField('После изменения:', newMessage.content)
+    .addField('До:', oldMessage.content)
+    .addField('После:', newMessage.content)
     .setColor(0x000000)	
     .setAuthor(oldMessage.author.tag, oldMessage.author.displayAvatarURL)	
     .setDescription(`**Сообщение от ${oldMessage.author} изменено в ${oldMessage.channel}**`)	
