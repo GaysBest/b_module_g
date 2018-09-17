@@ -63,6 +63,5 @@ setTimeout(function(){
   .setTimestamp()
   log.send({ embed });
   tomute.removeRole(muterole.id);
-  message.channel.send(`<@${tomute.id}> мут истек!`);
 }, ms(mutetime));
 }
