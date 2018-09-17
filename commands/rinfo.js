@@ -10,11 +10,13 @@ exports.run = (client, message, args) => {
   if(!role) return message.channel.send('```fix\nНеобходимо указать название существующей роли.```');
   const roleinfoEmbed = new Discord.RichEmbed()
   .setColor(0x000000)
-  .addField('Название:', `${role.name}`, true)
-  .addField('ID:', `${role.id}`, true)
-  .addField('Кол-во участников:', `${role.members.size}`, true)
-  .addField('Цвет:', `${role.hexColor}`, true)
+  .addField('Название:', `${role.name}`)
+  .addField('ID:', `${role.id}`)
+  .addField('Кол-во участников:', `${role.members.size}`)
+  .addField('Цвет:', `${role.hexColor}`)
   .setFooter(`${role.id}`)
+  .addField('Пингуемая:', `${role.mentionable} ? '\nДа' : 'Нет'`)
+  .addField('Дата создания:', moment(role.createdAt).format("LL"))
   .setTimestamp()
   .setDescription('**Описание роли**')
   .setAuthor(`${role.name}`);
