@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const client = new Discord.Client();
 const superagent = require("superagent");
 const moment = require("moment");
 exports.run = (client, message, args) => {
@@ -19,5 +20,5 @@ exports.run = (client, message, args) => {
   .setTimestamp()
   .setDescription('**Описание роли**')
   .setAuthor(`${role.name}`);
-  message.channel.send(roleinfoEmbed)
+  message.channel.send({roleinfoEmbed});
 }
