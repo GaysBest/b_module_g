@@ -8,13 +8,15 @@ exports.run = async (client, message, args) => {
         dnd: "Не беспокоить"
     };
 	let user;
-    if (message.mentions.users.first()) {
-      user = message.mentions.users.first();
+    if (message.mentions.members.first()) {
+      user = message.mentions.members.first();
     } else {
         user = message.author;
     }
     const member = message.guild.member(user);
     var botUser = member.bot ? "Да": "Нет";
+    var Status = statusList[member.presence.status] || "Оффлайн";
+    var activity = member.presence.activity !== null ? " - " + user.presence.activity.name: " ";
     const embed = new Discord.RichEmbed()
     .setThumbnail(user.avatarURL)
     .setColor(0x000000)
@@ -25,6 +27,6 @@ exports.run = async (client, message, args) => {
     .addField("На сервере с:", `${moment.utc(member.joinedAt).format('d/M/ Do YYYY, HH:mm')}`, true)
     .addField("Бот:", botUser, true)
     .setTimestamp()
-    .addField("Статус:", member.presence.status, true);
+    .addField("Статус:", Status + activity, true);
     message.channel.send({embed});
 }
