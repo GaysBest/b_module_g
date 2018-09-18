@@ -7,7 +7,7 @@ exports.run = async (client, message, args) => {
         idle: "Не активен",
         dnd: "Не беспокоить"
     };
-	const member;
+	let member;
     if (message.mentions.members.first()) {
       member = message.mentions.members.first();
     } else {
