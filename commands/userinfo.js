@@ -17,11 +17,11 @@ exports.run = async (client, message, args) => {
     var botUser = member.bot ? "Да": "Нет";
     var Status = statusList[member.presence.status] || "Оффлайн";
     const embed = new Discord.RichEmbed()
-    .setThumbnail(member.avatarURL)
+    .setThumbnail(user.avatarURL)
     .setColor(0x000000)
     .setFooter(`${user.id}`)
     .setAuthor("BGRU Discord UserInfo")
-    .setDescription(`member.tag`)
+    .setDescription(`**Участник:** ${user.tag}`)
     .addField("Создан:", `${moment.utc(user.createdAt).format('D/M/Y, HH:mm')}`, true)
     .addField("На сервере с:", `${moment.utc(user.joinedAt).format('D/M/Y, HH:mm')}`, true)
     .addField("Бот:", botUser, true)
