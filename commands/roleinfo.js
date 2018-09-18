@@ -1,8 +1,9 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 exports.run = async (client, message, args) => {
+const guild = message.channel.guild;
 const rol = args[0];
-const role = guild.roles.find("name", rol);
+const role = guild.roles.find("name", `${rol}`);
 if (!role) return message.channel.send("```fix\nНе удалось найти эту роль.```");
 const embed = new Discord.RichEmbed()
     .addField("Роль:", `${role.name} - ${role.id}`)
