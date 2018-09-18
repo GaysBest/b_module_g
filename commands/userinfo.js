@@ -17,7 +17,7 @@ exports.run = async (client, message, args) => {
     var botUser = member.bot ? "Да": "Нет";
     var Status = statusList[member.presence.status] || "Оффлайн";
     const embed = new Discord.RichEmbed()
-    .setThumbnail(user.avatarURL)
+    .setThumbnail(member.avatarURL)
     .setColor(0x000000)
     .setFooter(`${user.id}`)
     .setAuthor("BGRU Discord UserInfo")
