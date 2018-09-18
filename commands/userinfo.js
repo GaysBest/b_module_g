@@ -7,7 +7,7 @@ exports.run = async (client, message, args) => {
         idle: "Не активен",
         dnd: "Не беспокоить"
     };
-    const member = message.guild.member(message.mentions.members.first() || message.guild.members.get(args[0])) || message.author;
+    const member = message.guild.members.get(args[0])) || message.author;
     var botUser = member.bot ? "Да": "Нет";
     var Status = statusList[member.presence.status] || "Оффлайн";
     const embed = new Discord.RichEmbed()
@@ -16,8 +16,8 @@ exports.run = async (client, message, args) => {
     .setFooter(`${member.id}`)
     .setAuthor("BGRU Discord UserInfo")
     .setDescription(`**Участник: ${member.tag}**`)
-    .addField("Создан:", `${moment.utc(member.createdAt).format('dd/MM/YY, HH:mm')}`, true)
-    .addField("На сервере с:", `${moment.utc(member.joinedAt).format('dd/MM/YY, HH:mm')}`, true)
+    .addField("Создан:", `${moment.utc(member.createdAt).format('D/M/Y, HH:mm')}`, true)
+    .addField("На сервере с:", `${moment.utc(member.joinedAt).format('D/M/Y, HH:mm')}`, true)
     .addField("Бот:", botUser, true)
     .setTimestamp()
     .addField("Статус:", Status, true);
