@@ -7,7 +7,7 @@ exports.run = async (client, message, args) => {
         idle: "Не активен",
         dnd: "Не беспокоить"
     };
-    const member = message.guild.users.get(args[0]);
+    const member = message.mentions.members.first();
     var botUser = member.bot ? "Да": "Нет";
     var Status = statusList[member.presence.status] || "Оффлайн";
     const embed = new Discord.RichEmbed()
