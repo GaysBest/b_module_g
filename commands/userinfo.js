@@ -9,7 +9,6 @@ exports.run = async (client, message, args) => {
     };
     const member = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0])) || message.author;
     var botUser = member.bot ? "Да": "Нет";
-    var activity = member.presence.activity !== null ? " - " + member.presence.activity.name: " ";
     var Status = statusList[member.presence.status] || "Оффлайн";
     const embed = new Discord.RichEmbed()
     .setThumbnail(member.avatarURL)
@@ -21,6 +20,6 @@ exports.run = async (client, message, args) => {
     .addField("На сервере с:", `${moment.utc(member.joinedAt).format('dddd/MMMM/YYYY, HH:mm')}`, true)
     .addField("Бот:", botUser, true)
     .setTimestamp()
-    .addField("Статус:", Status + activity, true);
+    .addField("Статус:", Status, true);
     message.channel.send({embed});
 }
