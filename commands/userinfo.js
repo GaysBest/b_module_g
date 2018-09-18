@@ -22,7 +22,7 @@ exports.run = async (client, message, args) => {
     .setAuthor("BGRU Discord UserInfo")
     .setDescription(`Участник: ${user.tag}`)
     .addField("Создан:", `${moment.utc(user.createdAt).format('d/M/ Do YYYY, HH:mm')}`, true)
-    .addField("На сервере с:", ${moment.utc(member.joinedAt).format('d/M/ Do YYYY, HH:mm')}`, true)
+    .addField("На сервере с:", `${moment.utc(member.joinedAt).format('d/M/ Do YYYY, HH:mm')}`, true)
     .addField("Бот:", botUser, true)
     .setTimestamp()
     .addField("Статус:", member.presence.status + member.presence.activity.name, true);
