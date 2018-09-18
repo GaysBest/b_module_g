@@ -21,7 +21,7 @@ exports.run = async (client, message, args) => {
     .setColor(0x000000)
     .setFooter(`${user.id}`)
     .setAuthor("BGRU Discord UserInfo")
-    .setDescription(`**Участник: ${member.tag}**`)
+    .setDescription(`member.tag`)
     .addField("Создан:", `${moment.utc(user.createdAt).format('D/M/Y, HH:mm')}`, true)
     .addField("На сервере с:", `${moment.utc(user.joinedAt).format('D/M/Y, HH:mm')}`, true)
     .addField("Бот:", botUser, true)
