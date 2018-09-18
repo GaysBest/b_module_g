@@ -6,6 +6,7 @@ const rol = args[0];
 const role = guild.roles.find("name", `${rol}`);
 if(!role) return message.channel.send("```fix\nНе удалось найти эту роль.```");
     let embed = new Discord.RichEmbed()
+    .setThumbnail('https://i.imgur.com/rb5csMg.jpg')
     .setColor(0x000000)
     .addField("Роль:", `${role.name} - ${role.id}`)
     .addField("Позиция:", role.position, true)
