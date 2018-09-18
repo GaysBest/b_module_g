@@ -2,7 +2,13 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const moment = require("moment");
 exports.run = async (client, message, args) => {
-    const member = message.mentions.members.first();
+	let user;
+    if (message.mentions.users.first()) {
+      user = message.mentions.users.first();
+    } else {
+        user = message.author;
+    }
+    const member = message.guild.member(user);
     const statusList = {
         online: "Онлайн",
         idle: "Не активен",
