@@ -24,6 +24,6 @@ exports.run = async (client, message, args) => {
     .addField("На сервере с:", `${moment.utc(member.joinedAt).format('d/M/ Do YYYY, HH:mm')}`, true)
     .addField("Бот:", botUser, true)
     .setTimestamp()
-    .addField("Статус:", member.presence.status + member.presence.activity.name, true);
+    .addField("Статус:", member.presence.status + message.author.presence, true);
     message.channel.send({embed});
 }
