@@ -50,18 +50,6 @@ message.channel.send(`<@${tomute.id}> был заглушен на ${ms(ms(mutet
 
 setTimeout(function(){
   let mutetime = args[1];
-  const log = message.guild.channels.find('name', 'action-log');
-  const embed = new Discord.RichEmbed()
-  .setDescription('**Истечение мута**')
-  .addField('Модератор:', message.author, true)
-  .addField('Пользователь:', `${args[0]}`, true)
-  .addField('Канал:', message.channel, true)
-  .addField('Время:', `${ms(ms(mutetime))}`, true)
-  .setFooter(`${message.author.id}`)	
-  .setColor(0x000000)
-  .setAuthor(`BGRU Discord Unmute`, message.guild.iconURL)
-  .setTimestamp()
-  log.send({ embed });
   tomute.removeRole(muterole.id);
 }, ms(mutetime));
 }
