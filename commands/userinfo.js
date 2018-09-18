@@ -17,7 +17,7 @@ exports.run = async (client, message, args) => {
     var botUser = member.bot ? "Да": "Нет";
     var activity = member.presence.activity || "Нет" + member.presence.name || "Нет";
     const embed = new Discord.RichEmbed()
-    .setThumbnail(member.displayAvatarURL())
+    .setThumbnail(member.avatarURL)
     .setColor(0x000000)
     .setFooter(`${member.id}`)
     .setAuthor("BGRU Discord UserInfo")
