@@ -15,7 +15,7 @@ exports.run = async (client, message, args) => {
     const member = message.guild.member(user);
     var Status = statusList[member.presence.status] || "Оффлайн";
     var botUser = member.bot ? "Да": "Нет";
-    const activity = member.presence.activity !== null ? " - " + member.presence.activity.name: " ";
+    var activity = member.presence.activity || "Нет" + member.presence.name || "Нет";
     const embed = new Discord.RichEmbed()
     .setThumbnail(member.displayAvatarURL())
     .setColor(0x000000)
