@@ -14,18 +14,16 @@ exports.run = async (client, message, args) => {
         member = message.author;
     }
     var botUser = member.bot ? "Да": "Нет";
-    var Status = statusList[member.presence.status] || "Оффлайн";
-    var activity = member.presence.activity !== null ? " - " + member.presence.activity.name: " ";
     const embed = new Discord.RichEmbed()
     .setThumbnail(member.avatarURL)
     .setColor(0x000000)
     .setFooter(`${member.id}`)
     .setAuthor("BGRU Discord UserInfo")
-    .setDescription(`Участник: ${user.tag}`)
+    .setDescription(`Участник: ${member.tag}`)
     .addField("Создан:", `${moment.utc(member.createdAt).format('d/M/ Do YYYY, HH:mm')}`, true)
     .addField("На сервере с:", `${moment.utc(member.joinedAt).format('d/M/ Do YYYY, HH:mm')}`, true)
     .addField("Бот:", botUser, true)
     .setTimestamp()
-    .addField("Статус:", Status + activity, true);
+    .addField("Статус:", member.presence.status + member.presence.activity.name, true);
     message.channel.send({embed});
 }
