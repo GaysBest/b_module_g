@@ -2,12 +2,12 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const moment = require("moment");
 exports.run = async (client, message, args) => {
+    const member = message.mentions.members.first();
     const statusList = {
         online: "Онлайн",
         idle: "Не активен",
         dnd: "Не беспокоить"
     };
-    const member = message.mentions.members.first();
     var botUser = member.bot ? "Да": "Нет";
     var Status = statusList[member.presence.status] || "Оффлайн";
     const embed = new Discord.RichEmbed()
