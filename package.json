@@ -16,6 +16,7 @@
 		"superagent": "",
 		"ws": "",
 		"node-gd": "",
+		"sqlite3": "^3.1.13",
 		"random-puppy": ""
 	}
 }
