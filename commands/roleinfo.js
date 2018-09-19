@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const moment = require("moment");
 exports.run = async (client, message, args) => {
 const guild = message.channel.guild;
 const rol = args[0];
@@ -12,9 +13,9 @@ if(!role) return message.channel.send("```fix\nНе удалось найти э
     .addField("Позиция:", role.position, true)
     .addField("Цвет:", role.hexColor, true)
     .addField("Участников:", role.members.size, true)
-    .setFooter(`${message.author.id}`)
+    .setFooter(`Роль создана`)
     .setDescription('**Информация о роли**')
     .setAuthor('BGRU Discord RoleInfo')
-    .setTimestamp();
+    .setTimestamp(`${moment.utc(role.createdAt).format('D.M.Y')}`);
     message.channel.send({embed});
 }
