@@ -9,11 +9,11 @@ if(!role) return message.channel.send("```fix\nНе удалось найти э
     let embed = new Discord.RichEmbed()
     .setThumbnail('https://i.imgur.com/rb5csMg.jpg')
     .setColor(0x000000)
-    .addField("Роль:", `${role.name} - ${role.id}`)
+    .addField("Роль:", `${role.name}`)
     .addField("Позиция:", role.position, true)
     .addField("Цвет:", role.hexColor, true)
     .addField("Участников:", role.members.size, true)
-    .setFooter(`Роль создана • ${moment.utc(role.createdAt).format('D.M.Y')}`)
+    .setFooter(`${role.id} • ${moment.utc(role.createdAt).format('D.M.Y')}`)
     .setDescription('**Информация о роли**')
     .setAuthor('BGRU Discord RoleInfo')
     message.channel.send({embed});
