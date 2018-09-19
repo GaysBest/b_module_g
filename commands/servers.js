@@ -9,3 +9,4 @@ const embed = new Discord.RichEmbed()
     .setTimestamp()
     .setFooter(`${message.author.id}`);
     message.channel.send({embed});
+}
