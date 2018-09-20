@@ -60,6 +60,7 @@ client.on('message', message => {
       member.guild.channels.get('477572395369234433').send(`**${member.tag}**, как жаль, что ты покинул нас!`);	 
   });
    client.on('messageDelete', async (message) => {	
+    if(message.author.bot) return;
     if(message.channel === message.guild.channels.get('477598696314503168')) return;
     const log = message.guild.channels.find('name', 'action-log');	
     const embed = new Discord.RichEmbed()	
