@@ -57,9 +57,7 @@ client.on('message', message => {
       member.guild.channels.get('477572395369234433').send('**' + member.user.toString() + '**, добро пожаловать! Пожалуйста, прочти правила.'); 	
   });	
   client.on('guildMemberRemove', member => {
-      if(!member.bannable) return;
-      member.guild.channels.get('477572395369234433').send(`${member}, как жаль, что ты покинул нас!`);	
-      member.send('Как жаль, что ты покинул нас! Мы всегда рады тебе, возвращайся!\n\nhttps://discord.gg/2EDpngu');
+      member.guild.channels.get('477572395369234433').send(`**${member.tag}**, как жаль, что ты покинул нас!`);	 
   });
    client.on('messageDelete', async (message) => {	
     if(message.channel === message.guild.channels.get('477598696314503168')) return;
@@ -103,7 +101,4 @@ client.on('messageUpdate', async (oldMessage, newMessage) => {
     const log = oldMessage.guild.channels.find('name', 'action-log');	
     log.send({ embed });
 }); 
-client.on('guildBanAdd', async (guild, user) => {
-    guild.channels.get('477572395369234433').send(`${user} был забанен!`);
-});
 client.login(process.env.BOT_TOKEN);
