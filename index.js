@@ -6,16 +6,15 @@ var request = require("superagent");
 var prefix = "bg."
 //----------------------------------------------
 
-client.on('ready', () => {	
+client.on('ready', () => {
     console.log('Ya gotov!')
-    client.user.setStatus('avaible')	
-    client.user.setPresence({	
-        game: {	
-            name: 'bg.donate',	
-            type: "STREAMING",	
-            url: "https://www.twitch.tv/ostrikan"	
-        }	
-    });	
+    client.user.setStatus('available')
+    client.user.setPresence({
+        game: {
+            name: 'на число 30',
+            type: 3
+        }
+    });
 });
 
 client.on("message", message => {
