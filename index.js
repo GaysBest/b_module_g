@@ -104,6 +104,6 @@ client.on('messageUpdate', async (oldMessage, newMessage) => {
     log.send({ embed });
 }); 
 client.on('guildBanAdd', async (guild, user) => {
-    message.channel.send(`${user} был забанен!`);
+    member.guild.channels.get('477572395369234433').send(`${user} был забанен!`);
 });
 client.login(process.env.BOT_TOKEN);
