@@ -61,7 +61,7 @@ client.on('message', message => {
       member.send('Как жаль, что ты покинул нас! Мы всегда рады тебе, возвращайся!\n\nhttps://discord.gg/2EDpngu');
   });
    client.on('messageDelete', async (message) => {	
-    if(message.channel === "<#477598696314503168>") return;
+    if(message.channel === message.guild.channels.get('477598696314503168')) return;
     const log = message.guild.channels.find('name', 'action-log');	
     const embed = new Discord.RichEmbed()	
     .setColor(0x000000)	
