@@ -89,6 +89,7 @@ client.on('message', message => {
       }	
 });
 client.on('messageUpdate', async (oldMessage, newMessage) => {
+    if(oldMessage.channel === oldMessage.guild.channels.get('477598696314503168')) return;
     const embed = new Discord.RichEmbed()	
     .addField('До:', oldMessage.content)
     .addField('После:', newMessage.content)
