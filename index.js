@@ -57,7 +57,7 @@ client.on('message', message => {
       member.guild.channels.get('477572395369234433').send('**' + member.user.toString() + '**, добро пожаловать! Пожалуйста, прочти правила.'); 	
   });	
   client.on('guildMemberRemove', member => {
-      member.guild.channels.get('477572395369234433').send(`**${member.tag}**, как жаль, что ты покинул нас!`);	 
+      member.guild.channels.get('477572395369234433').send(`**${member.user.tag}**, как жаль, что ты покинул нас!`);	 
   });
    client.on('messageDelete', async (message) => {	
     if(message.author.bot) return;
