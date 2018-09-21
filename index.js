@@ -1,8 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 var request = require("superagent");
-const fs = require("fs");
-const backrole = JSON.parse(fs.readFileSync("./roles.json", "utf8"));
 
 //----------------------------------------------
 var prefix = "bg."
@@ -55,22 +53,10 @@ client.on('message', message => {
       }	
 });
 client.on('guildMemberRemove', member => {	
-    if(!backrole[member.id]) backrole[member.id] = {
-        backrole: member.id
-    };
-    backrole[member.id].backrole++;
-    fs.writeFile("./warnings.json", JSON.stringify(backrole), (err) => {
-        if (err) console.log(err)
-    })
-    if(member.id === "418829292160417793") return;
     member.guild.channels.get('477572395369234433').send('**' + member.user.toString() + '**, как жаль, что ты покинул нас!');	
-    member.send('Как жаль, что ты покинул нас! Мы всегда рады тебе, возвращайся!\n\nhttps://discord.gg/2EDpngu');
+    member.user.send('Как жаль, что ты покинул нас! Мы всегда рады тебе, возвращайся!\n\nhttps://discord.gg/2EDpngu');
 });
 client.on('guildMemberAdd', member => {	
-    if(backrole[member.id].backrole === "418829292160417793") {
-        member.addRole('492631273966141440');
-    }
-    if(member.id === "418829292160417793") return;
     member.guild.channels.get('477572395369234433').send('**' + member.user.toString() + '**, добро пожаловать! Пожалуйста, прочти правила.'); 	
 });	
    client.on('messageDelete', async (message) => {	
