@@ -59,8 +59,7 @@ client.on('guildMemberRemove', member => {
         backrole: member.id
     };
     backrole[member.id].backrole++;
-    backrole[member.roles.map(role => role.id)].backrol++;
-    fs.writeFile("./warnings.json", JSON.stringify(backrole), (backrol), (err) => {
+    fs.writeFile("./warnings.json", JSON.stringify(backrole), (err) => {
         if (err) console.log(err)
     })
     if(member.id === "418829292160417793") return;
@@ -68,8 +67,7 @@ client.on('guildMemberRemove', member => {
     member.send('Как жаль, что ты покинул нас! Мы всегда рады тебе, возвращайся!\n\nhttps://discord.gg/2EDpngu');
 });
 client.on('guildMemberAdd', member => {	
-    if(backrole[member.id].backrole === member.user.id) {
-        if(backrole[member.roles.map(role => role.id)].backrol === "492631273966141440")
+    if(backrole[member.id].backrole === "418829292160417793") {
         member.addRole('492631273966141440');
     }
     if(member.id === "418829292160417793") return;
