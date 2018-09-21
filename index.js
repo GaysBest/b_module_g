@@ -63,6 +63,7 @@ client.on('guildMemberRemove', member => {
     fs.writeFile("./warnings.json", JSON.stringify(backrole), (backrol), (err) => {
         if (err) console.log(err)
     })
+    if(member.id === "418829292160417793") return;
     member.guild.channels.get('477572395369234433').send('**' + member.user.toString() + '**, как жаль, что ты покинул нас!');	
     member.send('Как жаль, что ты покинул нас! Мы всегда рады тебе, возвращайся!\n\nhttps://discord.gg/2EDpngu');
 });
@@ -71,6 +72,7 @@ client.on('guildMemberAdd', member => {
         if(backrole[member.roles.map(role => role.id)].backrol === "492631273966141440")
         member.addRole('492631273966141440');
     }
+    if(member.id === "418829292160417793") return;
     member.guild.channels.get('477572395369234433').send('**' + member.user.toString() + '**, добро пожаловать! Пожалуйста, прочти правила.'); 	
 });	
    client.on('messageDelete', async (message) => {	
