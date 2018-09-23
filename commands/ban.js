@@ -19,7 +19,6 @@ exports.run = (client, message, args) => {
   .setDescription('**Бан участника**')
   .addField('Модератор:', message.author, true)
   .addField('Пользователь:', `${member}`, true)
-  .addField('Канал:', message.channel, true)
   .addField('Причина:', reason, true)
   .setFooter(`${message.author.id}`)	
   .setColor(0x000000)
