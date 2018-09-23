@@ -53,8 +53,7 @@ client.on('message', message => {
       }	
 });
 client.on('guildMemberRemove', member => {	
-    member.guild.channels.get('477572395369234433').send(`${member.user.tag}, как жаль, что ты покинул нас!`);	
-    member.user.send('Как жаль, что ты покинул нас! Мы всегда рады тебе, возвращайся!\n\nhttps://discord.gg/2EDpngu');
+    member.guild.channels.get('477572395369234433').send(`**${member.user.tag}**, как жаль, что ты покинул нас!`);	
 });
 client.on('guildMemberAdd', member => {	
     member.guild.channels.get('477572395369234433').send('**' + member.user.toString() + '**, добро пожаловать! Пожалуйста, прочти правила.'); 	
