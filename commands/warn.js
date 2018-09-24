@@ -4,14 +4,6 @@ const ms = require("ms");
 let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 
 exports.run = async (client, message, args) => {
-  const reasons {
-    1: "Оскорбления/Мат/Неадекватное поведение",
-    2: "Спам/Флуд/Срач",
-    3: "NSFW",
-    4: "Оффтоп",
-    5: "Пинги без причины/по ролям",
-    6: "Реклама"
-  };
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("```fix\nВы не можете это использовать.```");
   const wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
   if(!wUser) return message.channel.send("```fix\nНе удалось найти этого участника.```");
