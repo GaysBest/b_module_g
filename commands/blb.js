@@ -17,7 +17,7 @@ exports.run = async (client, message, args) => {
       var id = args[0];
       var time = args[1];
       var add = "INSERT INTO bluebans (player, ban_lengh, admin, admlvl) VALUES (`${id}`, `${time}`, `STEAM_ID_RCON`, `1`)";
-      con.query(sql, function (err, result, client) {
+      con.query(add, function (err, result, client) {
         if (err) throw err;
         if (err) return message.channel.send('```fix\nПроизошла ошибка.```');
         console.log("Domablen CHS");
