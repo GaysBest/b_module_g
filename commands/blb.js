@@ -6,7 +6,7 @@ exports.run = async (client, message, args) => {
         host: "mysql.elis-krymov1-0.myjino.ru",
         database: "elis-krymov1-0_bluebans",
         user: "046255387_blb",
-        password: "DB_PASSWORD",
+        password: "jnMnHVTeFxtX",
         port: "3306"
       });
       
