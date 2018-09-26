@@ -4,10 +4,9 @@ const mysql = require('mysql');
 exports.run = async (client, message, args) => {
     const con = mysql.createConnection({
         host: "mysql.elis-krymov1-0.myjino.ru",
-        database: "elis-krymov1-0_bluebans",
         user: "046255387_blb",
         password: "jnMnHVTeFxtX",
-        port: "3306"
+        database: "elis-krymov1-0_bluebans"
       });
       
       con.connect(function(err) {
