@@ -15,7 +15,7 @@ exports.run = async (client, message, args) => {
         console.log("Connected!");
       });
       var id = args[0];
-      var time = agrs[1];
+      var time = args[1];
       var add = "INSERT INTO bluebans (player, ban_lengh, admin, admlvl) VALUES (`${id}`, `${time}`, `STEAM_ID_RCON`, `1`)";
       con.query(sql, function (err, result, client) {
         if (err) throw err;
