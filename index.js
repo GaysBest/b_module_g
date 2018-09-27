@@ -101,11 +101,4 @@ client.on('messageUpdate', async (oldMessage, newMessage) => {
     const log = oldMessage.guild.channels.find('name', 'action-log');	
     log.send({ embed });
 }); 
-client.on('message', message => {
-    const opa = client.emojis.get("494927857554817044");
-    const swearWords = ["Опа", "опа"];	
-    if( swearWords.some(word => message.content.includes(word)) ) {	
-    message.react(opa.id);
-      }	
-});
 client.login(process.env.BOT_TOKEN);
