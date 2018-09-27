@@ -104,7 +104,7 @@ client.on('messageUpdate', async (oldMessage, newMessage) => {
 client.on('message', message => {
     const swearWords = ["Опа", "опа"];	
     if( swearWords.some(word => message.content.includes(word)) ) {	
-    message.react('494926903791321119');
+    message.react('<:Opa:494926903791321119>');
       }	
 });
 client.login(process.env.BOT_TOKEN);
