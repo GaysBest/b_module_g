@@ -102,7 +102,7 @@ client.on('messageUpdate', async (oldMessage, newMessage) => {
     log.send({ embed });
 }); 
 client.on('message', message => {
-    const opa = client.emojis.get("305818615712579584");
+    const opa = client.emojis.get("494927857554817044");
     const swearWords = ["Опа", "опа"];	
     if( swearWords.some(word => message.content.includes(word)) ) {	
     message.react(opa.id);
