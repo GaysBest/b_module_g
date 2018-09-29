@@ -12,7 +12,7 @@ exports.run = (client, message, args) => {
     .addField(`Канал:`, message.channel)	
     .addField(`Время:`, message.createdAt)	
     .addField(`Причина:`, rreason);	
-     let log = message.guild.channels.find('name', 'report');	
+     let log = message.guild.channels.find('id', '482951025469423647');	
     message.delete();	
     log.send({ embed });
 }
