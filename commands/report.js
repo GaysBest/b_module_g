@@ -11,7 +11,7 @@ exports.run = (client, message, args) => {
     .addField(`Жалуются на:`, `${rUser}`)	
     .addField(`Жалоба от:`, `${message.author}`)	
     .addField(`Канал:`, message.channel)	
-    .addField(`Время:`, `${moment.utc(message.createdAt).format('D.M.Y', 'Hh:mm')}`)	
+    .addField(`Время:`, `${moment.utc(message.createdAt).format('D.M.Y, HH:mm')}`)	
     .addField(`Причина:`, rreason);	
      let log = message.guild.channels.find('id', '482951025469423647');	
     message.delete();	
