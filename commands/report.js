@@ -1,5 +1,6 @@
 const Discord = require("discord.js");	
 const client = new Discord.Client();
+const moment = require("moment");
 exports.run = (client, message, args) => {
     let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));	
     if(!rUser) return message.channel.send('```fix\nНе удалось найти этого пользователя.```');	
@@ -10,7 +11,7 @@ exports.run = (client, message, args) => {
     .addField(`Жалуются на:`, `${rUser}`)	
     .addField(`Жалоба от:`, `${message.author}`)	
     .addField(`Канал:`, message.channel)	
-    .addField(`Время:`, message.createdAt)	
+    .addField(`Время:`, `${moment.utc(message.createdAt).format('D.M.Y', 'Hh:mm')}`)	
     .addField(`Причина:`, rreason);	
      let log = message.guild.channels.find('id', '482951025469423647');	
     message.delete();	
