@@ -8,7 +8,7 @@ const rol = args[0];
     if (message.mentions.roles.first()) {
       role = message.mentions.roles.first();
     } else {
-        role = guild.roles.find("name", `${rol}`;
+        role = guild.roles.find("name", `${rol}`);
     }
 if(!role) return message.channel.send("```fix\nНе удалось найти эту роль.```");
     let embed = new Discord.RichEmbed()
