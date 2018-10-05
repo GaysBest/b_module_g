@@ -33,6 +33,7 @@ exports.run = async (client, message, args) => {
   .setTimestamp();
   log.send({ embed });
   wUser.send({ embed });
+  message.channel.send('```Пользователь успешно получил предупреждение.```');
 
   if(warns[wUser.id].warns == 3){
     let muterole = message.guild.roles.find(`id`, "477599026817138691");
