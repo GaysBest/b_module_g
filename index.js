@@ -11,8 +11,8 @@ client.on('ready', () => {
     client.user.setStatus('available')
     client.user.setPresence({
         game: {
-            name: 'нытьё снятых админов',
-            type: 2
+            name: 'на число 54',
+            type: 3
         }
     });
 });
