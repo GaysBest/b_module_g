@@ -24,7 +24,7 @@ exports.run = async (client, message, args) => {
             return message.channel.send('```fix\nВы успешно вышли из ранга "МОЛЬ"!```');
         }
     }
-    if(role === "ОЛД" || role === "олд" || role === "Олд") {
+    if(role === "ОЛД" || role === "олд" || role === "Олд" || role === ":sunglasses:") {
         if(!message.member.roles.has(old.id)) {
         message.member.addRole(old);
         return message.channel.send('```fix\nВы успешно присоединились к рангу "ОЛД"!```');
