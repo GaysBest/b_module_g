@@ -9,6 +9,6 @@ exports.run = async (client, message) => {
     const embed = new Discord.RichEmbed()
     .setColor(0x000000)
     .setAuthor('BGRU Discord Ranks')
-    .setDescription(`**ЛАМПА** - ${bynd.size} участников\n**МОЛЬ** - ${abynd.size} участников\n**ОЛД** - ${old.size} участников`);
+    .setDescription(`**Двоечник** - ${bynd.size} участников\n**Отличник** - ${abynd.size} участников\n**ОЛД** - ${old.size} участников`);
     message.channel.send({embed});
 }
