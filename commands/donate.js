@@ -6,7 +6,7 @@ const embed = new Discord.RichEmbed()
 .setThumbnail("https://i.imgur.com/ihx61x0.png")	
 .setTitle('Купить привилегии:')	
 .setDescription('[Купить напрямую](https://qiwi.me/bestgamesru)\n')	
-.addField("Описание привилегий:", '[Цены и описание](http://bestgamesru.ru/index.php?/topic/598-bgru-platnye-uslugi/)\n')	
+.addField("Описание привилегий:", '[Цены и описание](https://bestgamesru.ru/index.php?/topic/1870-bgru-platnye-uslugi/&tab=comments#comment-8424)\n')	
 .addField("Поддержка:", 'Менеджер - [VK](https://vk.com/popularmorozov), [Steam](https://steamcommunity.com/id/PopularMorozov/)\n')	
 message.channel.send({ embed })	
 message.react("✔");
