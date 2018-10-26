@@ -10,5 +10,6 @@ exports.run = async (client, message) => {
     .setColor(0x000000)
     .setAuthor('BGRU Discord Ranks')
     .setDescription(`**Двоечник** - ${bynd.size} участников\n**Отличник** - ${abynd.size} участников\n**ОЛД** - ${old.size} участников`);
+    .setFooter('`bg.rank` <название ранга> для вступления');
     message.channel.send({embed});
 }
