@@ -4,24 +4,24 @@ exports.run = async (client, message, args) => {
     const abynd = message.guild.roles.find("id", "477612032603062276");
     const old = message.guild.roles.find("id", "500014542642872333");
     const role = args[0];
-    if(role === "ЛАМПА" || role === "лампа" || role === "Лампа") {
+    if(role === "ДВОЕЧНИК" || role === "двоечник" || role === "Двоечник") {
         if(!message.member.roles.has(bynd.id)) {
         message.member.addRole(bynd);
-        return message.channel.send('```fix\nВы успешно присоединились к рангу "ЛАМПА"!```');
+        return message.channel.send('```fix\nВы успешно присоединились к рангу "Двоечник".```');
         }
         if(message.member.roles.has(bynd.id)) {
         message.member.removeRole(bynd);
-        return message.channel.send('```fix\nВы успешно вышли из ранга "ЛАМПА"!```');
+        return message.channel.send('```fix\nВы успешно вышли из ранга "Двоечник".```');
         }
     }
-    if(role === "МОЛЬ" || role === "Моль" || role === "моль") {
+    if(role === "ОТЛИЧНИК" || role === "Отличник" || role === "отличник") {
         if(!message.member.roles.has(abynd.id)) {
             message.member.addRole(abynd);
-            return message.channel.send('```fix\nВы успешно присоединились к рангу "МОЛЬ"!```');
+            return message.channel.send('```fix\nВы успешно присоединились к рангу "Отличник".```');
         }
         if(message.member.roles.has(abynd.id)) {
             message.member.removeRole(abynd);
-            return message.channel.send('```fix\nВы успешно вышли из ранга "МОЛЬ"!```');
+            return message.channel.send('```fix\nВы успешно вышли из ранга "Отличник".```');
         }
     }
     if(role === "ОЛД" || role === "олд" || role === "Олд") {
