@@ -9,7 +9,7 @@ exports.run = async (client, message) => {
     const embed = new Discord.RichEmbed()
     .setColor(0x000000)
     .setAuthor('BGRU Discord Ranks')
-    .setDescription(`**Двоечник** - ${bynd.size} участников\n**Отличник** - ${abynd.size} участников\n**ОЛД** - ${old.size} участников`);
+    .setDescription(`**Двоечник** - ${bynd.size} участников\n**Отличник** - ${abynd.size} участников\n**ОЛД** - ${old.size} участников`)
     .setFooter('`bg.rank` <название ранга> для вступления');
     message.channel.send({embed});
 }
