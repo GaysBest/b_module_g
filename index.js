@@ -100,5 +100,12 @@ client.on('messageUpdate', async (oldMessage, newMessage) => {
     .setTimestamp();
     const log = oldMessage.guild.channels.find('name', 'action-log');	
     log.send({ embed });
+    const swearWords = ["SG", "чифир","взлом", "ЧИФИР", "ВЗЛОМ", "соурсгеймс", "СОУРСГЕЙМС", "сорсгамес", "sgru", "SGRU", "взлома", "https://discord.gg/", "покупной", "Покупной", "СГ", "СГРУ", "SGRU", "сгру", "Сгру", "бекдор", "Бекдор", "Бэкдур", "Бэкдор", "бэкдур", "бекдур", "backdoor", "doorback", "discord.gg", "ПГЗ", "пгз", "PGZ", "pgz", "PROGAMESZET", "PROGAMES", "progameszet", "progames", "прогамесзет", "ПРОГАМЕСЗЕТ", "прогеймесзет", "ПРОГЕЙМЕСЗЕТ", "Пгз", "Pgz"];	
+    if( swearWords.some(word => newMessage.content.includes(word)) ) {	
+        if(message.author.id === "477613962989404193") return;
+        if(message.member.hasPermission('BAN_MEMBERS')) return;
+        message.delete();	
+        message.author.send('```fix\nПохоже вы использовали запрещенное слово, мы удалили ваше сообщение!```');
+    }
 }); 
 client.login(process.env.BOT_TOKEN);
