@@ -102,8 +102,6 @@ client.on('messageUpdate', async (oldMessage, newMessage) => {
     log.send({ embed });
     const swearWords = ["SG", "чифир","взлом", "ЧИФИР", "ВЗЛОМ", "соурсгеймс", "СОУРСГЕЙМС", "сорсгамес", "sgru", "SGRU", "взлома", "https://discord.gg/", "покупной", "Покупной", "СГ", "СГРУ", "SGRU", "сгру", "Сгру", "бекдор", "Бекдор", "Бэкдур", "Бэкдор", "бэкдур", "бекдур", "backdoor", "doorback", "discord.gg", "ПГЗ", "пгз", "PGZ", "pgz", "PROGAMESZET", "PROGAMES", "progameszet", "progames", "прогамесзет", "ПРОГАМЕСЗЕТ", "прогеймесзет", "ПРОГЕЙМЕСЗЕТ", "Пгз", "Pgz"];	
     if(swearWords.some(word => newMessage.content.includes(word)) ) {	
-        if(newMessage.author.id === "477613962989404193") return;
-        if(newMessage.member.hasPermission('BAN_MEMBERS')) return;
         newMessage.delete();	
         newMessage.author.send('```fix\nПохоже вы использовали запрещенное слово, мы удалили ваше сообщение!```');
     }
