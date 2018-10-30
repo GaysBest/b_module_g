@@ -105,7 +105,7 @@ client.on('messageUpdate', async (oldMessage, newMessage) => {
 }); 
 client.on('message', message => {
     const swearWords = ["Когда турнир", "когда турнир", "КОГДА ТУРНИР", "Когда Турнир", "когда Турнир", "КОгда турнир", "КОГДА ТУРНИР?", "Когда турнир?", "когда Турнир?", "Когда Турнир?", "КОгда турнир?"];
-    if(message.channel !=== message.guild.channels.get('477577918718148610')) return;
+    if(message.channel !== message.guild.channels.get('477577918718148610')) return;
     if( swearWords.some(word => message.content.includes(word)) ) {	
         if(message.author.id === "477613962989404193") return;
         if(message.member.hasPermission('BAN_MEMBERS')) return;
