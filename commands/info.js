@@ -10,12 +10,12 @@ var dmip = "46.174.52.3:27269/b_160_400_0_FFFFFF_FFFFFF_FFFFFF_0D0E12_0_1_0.png"
         message.channel.send(`http://cache.gametracker.com/server_info/${jailip}`);
     }
     if(server === "dr") {
-        message.channel.send(`https://cache.gametracker.com/server_info/${drip}`);
+        message.channel.send(`http://cache.gametracker.com/server_info/${drip}`);
     }
     if(server === "ff2") {
-        message.channel.send(`https://cache.gametracker.com/server_info/${ff2ip}`);
+        message.channel.send(`http://cache.gametracker.com/server_info/${ff2ip}`);
     }
     if(server === "dm") {
-        message.channel.send(`https://cache.gametracker.com/server_info/${dmip}`);
+        message.channel.send(`http://cache.gametracker.com/server_info/${dmip}`);
     }
 }
