@@ -4,15 +4,19 @@ exports.run = (client, message, args) => {
 const server = args[0];
 const jailembed = new Discord.RichEmbed()
     .setImage(`http://cache.gametracker.com/server_info/46.174.52.2:27204/b_160_400_0_FFFFFF_FFFFFF_FFFFFF_0D0E12_0_1_0.png`)
+    .setTitle(`BestGames.RU | Jail #1`)
     .setColor(0x000000);
 const drembed = new Discord.RichEmbed()
     .setImage(`http://cache.gametracker.com/server_info/46.174.52.14:27209/b_160_400_0_FFFFFF_FFFFFF_FFFFFF_0D0E12_0_1_0.png`)
+    .setTitle(`BestGames.RU | DeathRun`)
     .setColor(0x000000);
 const ff2embed = new Discord.RichEmbed()
     .setImage(`http://cache.gametracker.com/server_info/46.174.52.20:27272/b_160_400_0_FFFFFF_FFFFFF_FFFFFF_0D0E12_0_1_0.png`)
+    .setTitle(`BestGames.RU | Freak Fortress 2`)
     .setColor(0x000000);
 const dmembed = new Discord.RichEmbed()
     .setImage(`http://cache.gametracker.com/server_info/46.174.52.3:27269/b_160_400_0_FFFFFF_FFFFFF_FFFFFF_0D0E12_0_1_0.png`)
+    .setTitle(`BestGames.RU | DeathMatch`)
     .setColor(0x000000);
     
     if(server === "jail") {
