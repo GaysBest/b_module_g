@@ -15,8 +15,6 @@
 		"moment-duration-format": "",
 		"superagent": "",
 		"ws": "",
-		"sqlite3": "^3.1.13",
-		"mysql": "",
 		"random-puppy": ""
 	}
 }
