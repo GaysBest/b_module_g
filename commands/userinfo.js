@@ -22,8 +22,8 @@ exports.run = async (client, message, args) => {
     .setFooter(`${user.id}`)
     .setAuthor("BGRU Discord UserInfo")
     .setDescription(`**Участник:** ${user.tag}`)
-    .addField("Создан:", `${moment.utc(user.createdAt).format('D/M/Y, HH:mm')}`, true)
-    .addField("На сервере с:", `${moment.utc(user.joinedAt).format('D/M/Y, HH:mm')}`, true)
+    .addField("Создан:", `${moment.utc(user.createdAt).format('D.M.Y, HH:mm')}`, true)
+    .addField("На сервере с:", `${moment.utc(user.joinedAt).format('D.M.Y, HH:mm')}`, true)
     .addField("Бот:", botUser, true)
     .setTimestamp()
     .addField("Статус:", Status, true);
