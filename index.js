@@ -17,6 +17,12 @@ client.on('ready', () => {
     });
 });
 
+client.on('guildMemberUpdate', async (oldMember, newMember) => {
+    if(newMember.id === "323764173995638784" || newMember.id === "285457951248875521") return;
+    if(newMember.roles.some(r=>["509034732684705814"].includes(r.id)) )
+        return newMember.removeRole(`509034732684705814`);
+}
+
 client.on("message", message => {
     if (message.author.bot) return;
     if (message.content.indexOf(prefix) !== 0) return;
