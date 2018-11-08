@@ -14,7 +14,7 @@ exports.run = (client, message, args) => {
     member.kick().then((member) => {
         message.channel.send("```fix\nПользователь успешно кикнут.```");
     const log = message.guild.channels.find('name', 'action-log');
-    const embed = new Discord.RichEmbed()
+    var embed = new Discord.RichEmbed()
     .setDescription('**Кик участника**')
     .addField('Модератор:', message.author, true)
     .addField('Пользователь:', `${member}`, true)
