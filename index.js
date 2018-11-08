@@ -40,7 +40,7 @@ client.on("message", message => {
 });
 
 client.on('guildMemberAdd', member => {	
-    const embed = new Discord.RichEmbed()	
+    var embed = new Discord.RichEmbed()	
     .setColor(0x000000)	
     .setAuthor('BestGames.RU')	
     .setThumbnail('https://i.imgur.com/rb5csMg.jpg')	
@@ -67,7 +67,7 @@ client.on('guildMemberAdd', member => {
     if(message.author.bot) return;
     if(message.channel === message.guild.channels.get('477598696314503168')) return;
     const log = message.guild.channels.find('name', 'action-log');	
-    const embed = new Discord.RichEmbed()	
+    var embed = new Discord.RichEmbed()	
     .setColor(0x000000)	
     .setAuthor(message.author.tag, message.author.displayAvatarURL)	
     .setDescription(`**Сообщение от ${message.author} удалено в ${message.channel}**`)	
@@ -94,7 +94,7 @@ client.on('message', message => {
 client.on('messageUpdate', async (oldMessage, newMessage) => {
     if(oldMessage.author.bot) return;
     if(oldMessage.channel === oldMessage.guild.channels.get('477598696314503168')) return;
-    const embed = new Discord.RichEmbed()	
+    var embed = new Discord.RichEmbed()	
     .addField('До:', oldMessage.content)
     .addField('После:', newMessage.content)
     .setColor(0x000000)	
