@@ -16,7 +16,7 @@ exports.run = async (client, message, args) => {
     };
     var botUser = member.bot ? "Да": "Нет";
     var Status = statusList[member.presence.status] || "Оффлайн";
-    const embed = new Discord.RichEmbed()
+    var embed = new Discord.RichEmbed()
     .setThumbnail(user.avatarURL)
     .setColor(0x000000)
     .setFooter(`${user.id}`)
