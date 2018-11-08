@@ -34,7 +34,7 @@ let reason = args.slice(1).join(' ');
 
 tomute.addRole(muterole.id);
   const log = message.guild.channels.find('name', 'action-log');
-  const embed = new Discord.RichEmbed()
+  var embed = new Discord.RichEmbed()
   .setDescription('**Выдача мута**')
   .addField('Модератор:', message.author, true)
   .addField('Пользователь:', `${args[0]}`, true)
