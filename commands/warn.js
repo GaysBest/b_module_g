@@ -20,7 +20,7 @@ exports.run = async (client, message, args) => {
     if (err) console.log(err)
   });
   const log = message.guild.channels.find('name', 'action-log');
-  const embed = new Discord.RichEmbed()
+  var embed = new Discord.RichEmbed()
   .setDescription("**Предупреждениe**")
   .addField('Модератор:', message.author)
   .addField("Пользователь:", `<@${wUser.id}>`)
@@ -42,7 +42,7 @@ exports.run = async (client, message, args) => {
     await(wUser.addRole(muterole.id));
     message.channel.send(`<@${wUser.id}> получил временный мут.`);
   const log = message.guild.channels.find('name', 'action-log');
-  const embed = new Discord.RichEmbed()
+  var embed1 = new Discord.RichEmbed()
   .setDescription('**Выдача мута**')
   .addField('Пользователь:', `<@${wUser.id}>`)
   .addField("Причина:", "Предупреждения 3/3")
@@ -50,8 +50,8 @@ exports.run = async (client, message, args) => {
   .setColor(0x000000)
   .setAuthor(`BGRU Discord Mute`, message.guild.iconURL)
   .setTimestamp()
-  log.send({ embed });
-  wUser.send({ embed });
+  log.send({ embed1 });
+  wUser.send({ embed1 });
 
     setTimeout(function(){
       wUser.removeRole(muterole.id)
