@@ -15,7 +15,7 @@ exports.run = (client, message, args) => {
   member.ban(reason)	
   message.channel.send("```fix\nБан успешно добавлен.```");	
   const log = message.guild.channels.find('name', 'action-log');
-  const embed = new Discord.RichEmbed()
+  var embed = new Discord.RichEmbed()
   .setDescription('**Бан участника**')
   .addField('Модератор:', message.author, true)
   .addField('Пользователь:', `${member}`, true)
