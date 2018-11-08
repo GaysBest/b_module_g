@@ -6,7 +6,7 @@ exports.run = async (client, message) => {
     const abynd = message.guild.roles.get(roleID1).members;
     const roleID2 = "500014542642872333";
     const old = message.guild.roles.get(roleID2).members;
-    const embed = new Discord.RichEmbed()
+    var embed = new Discord.RichEmbed()
     .setColor(0x000000)
     .setAuthor('BGRU Discord Ranks')
     .setDescription(`**Двоечник** - ${bynd.size} участников\n**Отличник** - ${abynd.size} участников\n**ОЛД** - ${old.size} участников`)
