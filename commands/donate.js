@@ -1,7 +1,7 @@
 const Discord = require("discord.js");	
 const client = new Discord.Client();
 exports.run = (client, message) => {
-const embed = new Discord.RichEmbed()	
+var embed = new Discord.RichEmbed()	
 .setColor(0x000000)	
 .setThumbnail("https://i.imgur.com/ihx61x0.png")	
 .setTitle('Купить привилегии:')	
