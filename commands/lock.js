@@ -12,7 +12,7 @@ let time = args.join(' ');
 let validUnlocks = ['анлок', 'unlock'];
 if (!time) return message.channel.send('```fix\nВы должны указать время в часах, минутах или секундах.```');
 const log = message.guild.channels.find('name', 'action-log');
-const embed = new Discord.RichEmbed()
+var embed = new Discord.RichEmbed()
 .setDescription('**Блокировка канала**')
 .addField('Модератор:', message.author)
 .addField('Канал:', message.channel)
