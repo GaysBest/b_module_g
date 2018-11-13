@@ -66,11 +66,21 @@ client.on('guildMemberAdd', member => {
    client.on('messageDelete', async (message) => {	
     if(message.author.bot) return;
     if(message.channel === message.guild.channels.get('477598696314503168')) return;
+  const entry = await message.guild.fetchAuditLogs({type: 'MESSAGE_DELETE'}).then(audit => audit.entries.first())
+  let user = ""
+    if (entry.extra.channel.id === message.channel.id
+      && (entry.target.id === message.author.id)
+      && (entry.createdTimestamp > (Date.now() - 5000))
+      && (entry.extra.count >= 1)) {
+    user = entry.executor.username
+  } else { 
+    user = message.author.username
+  }
     const log = message.guild.channels.find('name', 'action-log');	
     var embed = new Discord.RichEmbed()	
     .setColor(0x000000)	
     .setAuthor(message.author.tag, message.author.displayAvatarURL)	
-    .setDescription(`**Сообщение от ${message.author} удалено в ${message.channel}**`)	
+    .setDescription(`**Сообщение от ${message.author} удалено в ${message.channel} пользователем ${user}**`)	
     .addField(`Текст сообщения:`, message.content)	
     .setFooter(`${message.author.id}`)	
     .setAuthor(message.author.tag, message.author.displayAvatarURL)
