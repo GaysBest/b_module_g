@@ -72,9 +72,9 @@ client.on('guildMemberAdd', member => {
       && (entry.target.id === message.author.id)
       && (entry.createdTimestamp > (Date.now() - 5000))
       && (entry.extra.count >= 1)) {
-    user = entry.executor.username
+    user = entry.executor
   } else { 
-    user = message.author.username
+    user = message.author
   }
     const log = message.guild.channels.find('name', 'action-log');	
     var embed = new Discord.RichEmbed()	
