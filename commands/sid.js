@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
             }
         var sid = new SteamID(id);
         var forlink = JSON.stringify(sid.getSteamID64())
-        var embedlink = 'https://steamcommunity.com/id/${forlink}/'
+        var embedlink = 'https://steamcommunity.com/id/${String(forlink)}/'
         try {
             var steam3 = new Discord.RichEmbed()
             .setAuthor("BGRU Discord SteamID Finder")
