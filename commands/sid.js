@@ -1,6 +1,6 @@
 var SteamID = require("steamid");
 const Discord = require("discord.js");
-
+const client = new Discord.Client();
 exports.run = async (client, message, args) => {
         let id = args.join(" ");
         if(!id){
