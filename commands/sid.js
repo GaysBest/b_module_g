@@ -7,7 +7,7 @@ exports.run = async (client, message, args) => {
             return message.channel.send("```fix\nНеобходимо указать SteamID.```");
             }
         var sid = new SteamID(id);
-        var link = 'https://steamcommunity.com/id/${sid.getSteamID64())}/'
+        var link = 'https://steamcommunity.com/id/' + String(sid.getSteamID64())
         try {
             var steam3 = new Discord.RichEmbed()
             .setAuthor("BGRU Discord SteamID Finder")
