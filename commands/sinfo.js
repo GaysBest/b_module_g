@@ -2,18 +2,18 @@ const request = require('request');
 const Discord = require('discord.js');
 
 exports.run = (client, message, args) => {
-    const ip = args.join(" ");
+    var ip = args.join(" ");
     if(ip == 'jail') {
-      ip = '46.174.52.2:27204'
+      var ip = '46.174.52.2:27204'
     }
     if(ip == 'dr') {
-      ip = '46.174.52.14:27209'
+      var ip = '46.174.52.14:27209'
     }
     if(ip == 'ff2') {
-      ip = '46.174.52.20:27272'
+      var ip = '46.174.52.20:27272'
     }
     if(ip == 'dm') {
-      ip = '46.174.52.3:27269'
+      var ip = '46.174.52.3:27269'
     }
     if(!ip) return message.channel.send("```fix\nУкажите IP.```")
   request(`https://use.gameapis.net/source/query/info/${ip}`, {json: true, time: true}, function (error, response, body) {
