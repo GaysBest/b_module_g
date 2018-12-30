@@ -62,31 +62,7 @@ client.on('guildMemberRemove', member => {
 });
 client.on('guildMemberAdd', member => {	
     member.guild.channels.get('477572395369234433').send('**' + member.user.toString() + '**, добро пожаловать! Пожалуйста, прочти правила.'); 	
-});	
-   client.on('messageDelete', async (message) => {	
-    if(message.author.bot) return;
-    if(message.channel === message.guild.channels.get('477598696314503168')) return;
-  const entry = await message.guild.fetchAuditLogs({type: 'MESSAGE_DELETE'}).then(audit => audit.entries.first())
-  let user = ""
-    if (entry.extra.channel.id === message.channel.id
-      && (entry.target.id === message.author.id)
-      && (entry.createdTimestamp > (Date.now() - 5000))
-      && (entry.extra.count >= 1)) {
-    user = entry.executor
-  } else { 
-    user = message.author
-  }
-    const log = message.guild.channels.find('name', 'action-log');	
-    var embed = new Discord.RichEmbed()	
-    .setColor(0x000000)	
-    .setAuthor(message.author.tag, message.author.displayAvatarURL)	
-    .setDescription(`**Сообщение от ${message.author} удалено в ${message.channel} пользователем ${user}**`)	
-    .addField(`Текст сообщения:`, message.content)	
-    .setFooter(`${message.author.id}`)	
-    .setAuthor(message.author.tag, message.author.displayAvatarURL)
-    .setTimestamp()	
-    log.send({ embed });	
-  });
+});
    client.on('message', message => {
       const swearWords = ["инвайт", "приглашение", "ссылку на дискорд", "ссылка на дискорд", "Инвайт", "Приглашение", "Ссылку на дискорд", "Ссылка на дискорд"];	
       if( swearWords.some(word => message.content.includes(word)) ) {	
@@ -101,23 +77,4 @@ client.on('message', message => {
         message.delete();
       }	
 });
-client.on('messageUpdate', async (oldMessage, newMessage) => {
-    if(oldMessage.author.bot) return;
-    if(oldMessage.channel === oldMessage.guild.channels.get('477598696314503168')) return;
-    var embed = new Discord.RichEmbed()	
-    .addField('До:', oldMessage.content)
-    .addField('После:', newMessage.content)
-    .setColor(0x000000)	
-    .setAuthor(oldMessage.author.tag, oldMessage.author.displayAvatarURL)	
-    .setDescription(`**Сообщение от ${oldMessage.author} изменено в ${oldMessage.channel}**`)	
-    .setFooter(`${oldMessage.author.id}`)	
-    .setAuthor(oldMessage.author.tag, oldMessage.author.displayAvatarURL)
-    .setTimestamp();
-    const log = oldMessage.guild.channels.find('name', 'action-log');	
-    log.send({ embed });
-    const swearWords = ["SG", "чифир","взлом", "ЧИФИР", "ВЗЛОМ", "соурсгеймс", "СОУРСГЕЙМС", "сорсгамес", "sgru", "SGRU", "взлома", "https://discord.gg/", "покупной", "Покупной", "СГ", "СГРУ", "SGRU", "сгру", "Сгру", "sg", "sourcegames", "бекдор", "Бекдор", "Бэкдур", "Бэкдор", "бэкдур", "бекдур", "backdoor", "doorback", "discord.gg", "ПГЗ", "пгз", "PGZ", "pgz", "PROGAMESZET", "PROGAMES", "progameszet", "progames", "прогамесзет", "ПРОГАМЕСЗЕТ", "прогеймесзет", "ПРОГЕЙМЕСЗЕТ", "Пгз", "Pgz"];	
-    if(swearWords.some(word => newMessage.content.includes(word)) ) {	
-        newMessage.delete();
-    }
-}); 
 client.login(process.env.BOT_TOKEN);
