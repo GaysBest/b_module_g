@@ -18,7 +18,7 @@ client.on('ready', () => {
 });
 
 client.on('guildMemberUpdate', async (oldMember, newMember) => {
-    if(newMember.id === "323764173995638784" || newMember.id === "285457951248875521" || newMember.id === "281424024523898880") return;
+    if(newMember.id === "323764173995638784" || newMember.id === "285457951248875521" || newMember.id === "281424024523898880" || newMember.id === "369182213339873280" || newMember.id === "358565534293426187") return;
     if(newMember.roles.some(r=>["509034732684705814"].includes(r.id)) )
         return newMember.removeRole(`509034732684705814`);
 });
