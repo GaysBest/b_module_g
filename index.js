@@ -49,14 +49,6 @@ client.on('guildMemberAdd', member => {
     .addField("Правила Discord сервера:", '```1. Запрещены оскорбления, мат, неадекватное поведение.\n2. Запрещен спам, флуд и срач.\n3. Запрещено распостранять NSFW контент.\n4. Запрещен оффтоп (сообщения не по теме).\n5. Запрещено пинговать(упоминать) по ролям и пинговать без причины.\n6. Запрещена реклама в любом виде.```\n\nДля того, чтобы подать заявку для вступления в Администрацию посетите наш [форум](http://bestgamesru.ru/).\n\nЕсли вас забанили/замутили/кикнули, и вы считаете, что наказание выдано несправедливо, то подайте жалобу на [форум](http://bestgamesru.ru/).\n\nПосмотреть детали наказания можно на странице [SourceBans](http://bans.bestgamesru.ru/)\n\nДля получения информации о Donate-привилегиях пропишите команду `bg.donate` в любом канале.')	
     member.send({ embed });	
   });	
-client.on('message', message => {
-    const swearWords = ["SG", "чифир","взлом", "ЧИФИР", "ВЗЛОМ", "соурсгеймс", "СОУРСГЕЙМС", "сорсгамес", "sgru", "SGRU", "взлома", "https://discord.gg/", "покупной", "Покупной", "СГ", "СГРУ", "SGRU", "сгру", "Сгру", "бекдор", "Бекдор", "Бэкдур", "Бэкдор", "бэкдур", "бекдур", "backdoor", "doorback", "discord.gg", "sg", "sourcegames", "ПГЗ", "пгз", "PGZ", "pgz", "PROGAMESZET", "PROGAMES", "progameszet", "progames", "прогамесзет", "ПРОГАМЕСЗЕТ", "прогеймесзет", "ПРОГЕЙМЕСЗЕТ", "Пгз", "Pgz"];	
-    if( swearWords.some(word => message.content.includes(word)) ) {	
-        if(message.author.id === "477613962989404193") return;
-        if(message.member.hasPermission('BAN_MEMBERS')) return;
-        message.delete();
-      }	
-});
 client.on('guildMemberRemove', member => {	
     member.guild.channels.get('477572395369234433').send(`**${member.user.tag}**, как жаль, что ты покинул нас!`);	
 });
@@ -69,12 +61,4 @@ client.on('guildMemberAdd', member => {
           message.channel.send("https://discord.gg/cSEATcj");
         }	
   });
-client.on('message', message => {
-    const swearWords = ["Пизд", "пизд", "сук", "Сук", "Пидор", "пидор", " бля ", " Бля ", " хуй ", " Хуй ", "Еблан", "еблан", "заебал", "Заебал", "ЗАЕБАЛ"];	
-    if( swearWords.some(word => message.content.includes(word)) ) {	
-        if(message.author.id === "477613962989404193") return;
-        if(message.member.hasPermission('BAN_MEMBERS')) return;
-        message.delete();
-      }	
-});
 client.login(process.env.BOT_TOKEN);
